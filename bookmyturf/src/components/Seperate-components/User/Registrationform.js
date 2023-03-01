@@ -25,9 +25,9 @@ export default function Registrationform() {
         <input className='clsinput'type="password" id="confirmpassword" name="confirmpassword" required/><br/>
         <div>
         <label for="role">Role:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input className='clsinput'type="radio" id="turfowner" name="role" value="turfowner" required/>
+        <input className='clsinput'type="radio" id="turfowner" name="role" value="turfowner" required/>&nbsp;&nbsp;
         <label for="turfowner">Turf Owner</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input className='clsinput'type="radio" id="client" name="role" value="client" required/>
+        <input className='clsinput'type="radio" id="client" name="role" value="client" required/>&nbsp;&nbsp;
         <label for="client">Client</label>
         </div>
         <input className='clsbutton' type="submit" value="Register"/>
