@@ -14,7 +14,7 @@ export default function Loginform() {
 		<button className="clsbutton" type="submit">Login</button>
 		<div className="register">
 			<p>Don't have an account?</p>
-			<a href="/RegisterUser.html">Register</a>
+			<a href="/registeruser">Register</a>
 		</div>
 	</form>
     </div>
