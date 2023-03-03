@@ -5,31 +5,72 @@ export default function Registrationform() {
   return (
     <div>
         <center><h1>User Registration</h1></center>
-      <form className="userform" action="/register" method="post">
-        <label for="firstname">First Name:</label>
-        <input className='clsinput' type="text" id="firstname" name="firstname" required /><br/>
+      <form className=" userform row " action="/register" method="post">
+     
+        
 
-        <label for="lastname">Last Name:</label>
-        <input className='clsinput' type="text" id="lastname" name="lastname" required/><br/>
+      <div className="form-group row">
+                <label for="firstname" className='col-sm-2 col-form-label' >First Name:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control' type="text" id="firstname" name="firstname" required /><br/>
+                  </div>
+      </div>
 
-        <label for="email">Email:</label>
-        <input className='clsinput' type="email" id="email" name="email" required/><br/>
+      <div className="form-group row">
+                <label for="lastname" className='col-sm-2 col-form-label'>Last Name:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control' type="text" id="lastname" name="lastname" required/><br/>
+                  </div>
+      </div>
 
-        <label for="contactno">Contact Number:</label>
-        <input className='clsinput'type="tel" id="contactno" name="contactno" required/><br/>
+      <div className="form-group row">
+                  <label for="email" className='col-sm-2 col-form-label'>Email:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control' type="text" id="email" name="Email" required /><br/>
+                  </div>
+      </div>
 
-        <label for="password">Password:</label>
-        <input className='clsinput'type="password" id="password" name="password" required/><br/>
+      <div className="form-group row">
+      <label for="contactno" className='col-sm-2 col-form-label'>Contact Number:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control'type="tel" id="contactno" name="contactno" required/><br/>
 
-        <label for="confirmpassword">Confirm Password:</label>
-        <input className='clsinput'type="password" id="confirmpassword" name="confirmpassword" required/><br/>
-        <div>
-        <label for="role">Role:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input className='clsinput'type="radio" id="turfowner" name="role" value="turfowner" required/>&nbsp;&nbsp;
-        <label for="turfowner">Turf Owner</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input className='clsinput'type="radio" id="client" name="role" value="client" required/>&nbsp;&nbsp;
-        <label for="client">Client</label>
+                  </div>
+      </div>
+
+      <div className="form-group row">
+                 <label for="password" className='col-sm-2 col-form-label'>Password:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control'type="password" id="password" name="password" required/><br/>
+                  </div>
+      </div>
+
+      <div className="form-group row">
+                  <label for="confirmpassword" className='col-sm-2 col-form-label'>Confirm Password:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control'type="password" id="confirmpassword" name="confirmpassword" required/><br/>
+                  </div>
+      </div>  
+      <div>
+      <fieldset className="form-group row" />
+        <div className="row">
+        <label className="col-form-label col-sm-2 ">Role</label>
+          <div className="col-sm-10">
+          <div className="form-check">
+          <input className="form-check-input" type="radio" name="userRole" id="gridRadios1" value="turf"  />
+          <label className="form-check-label" for="gridRadios1">
+            Turf Owner
+          </label>
         </div>
+        <div className="form-check">
+          <input className="form-check-input" type="radio" name="userRole" id="gridRadios2" value="player" checked />
+          <label className="form-check-label" for="gridRadios2">
+            Players
+          </label>
+        </div>
+        </div>
+      </div>
+      </div>
         <input className='clsbutton' type="submit" value="Register"/>
       </form>
     </div>

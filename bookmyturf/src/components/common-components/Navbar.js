@@ -23,7 +23,7 @@ export default function Navbar() {
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Admin
           </a>
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="#">Action</a></li>
@@ -36,7 +36,7 @@ export default function Navbar() {
           <a className="nav-link disabled">Disabled</a>
         </li> */}
       </ul>
-      <form className="d-flex" role="search">
+      <form className="d-flex col-5" role="search">
         <input className="form-control" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
