@@ -19,13 +19,8 @@ export default function Loginform() {
 		<label for="username"><b>Username</b></label>
 		<input className='clsinput' type="text" placeholder="Enter Username" name="username" required onBlur={(e)=>handlechange(e)}/>
 		<label for="password"><b>Password</b></label>
-<<<<<<< HEAD
 		<input className='clsinput' type="password" placeholder="Enter Password" name="password" required onBlur={(e)=>handlechange(e)}/>
 		<button className="clsbutton" type="submit">Login</button>
-=======
-		<input className='clsinput' type="password" placeholder="Enter Password" name="password" required />
-		<button className="clsbutton" type="submit" >Login</button>
->>>>>>> 29d9997eac0636c411d6ab6a2796cf34146e449a
 		<div className="register">
 			<p>Don't have an account?</p>
 			<a href="/registeruser">Register</a>
