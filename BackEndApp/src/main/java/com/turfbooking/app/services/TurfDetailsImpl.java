@@ -16,24 +16,28 @@ public class TurfDetailsImpl implements TurfService {
 
 	@Autowired
 	private TurfRepository turfRepo;
-	
-	
+
 	@Override
 	public TurfDetails addTurf(TurfDetails turf) {
 		return turfRepo.save(turf);
 	}
 
-
 	@Override
 	public TurfDetails findTurfById(Long Id) {
-		
+
 		return turfRepo.findById(Id).get();
 	}
-
 
 	@Override
 	public List<TurfDetails> findAllTurf() {
 		return turfRepo.findAll();
+	}
+
+	@Override
+	public TurfDetails getTurfByTurfOwnerId(Long id) {
+		List<TurfDetails> turfList = turfRepo.findAll();
+		TurfDetails turfDetails = (TurfDetails) turfList.stream().filter(p -> p.getTurf_owner_id().getId() == id);
+		return turfDetails;
 	}
 
 }

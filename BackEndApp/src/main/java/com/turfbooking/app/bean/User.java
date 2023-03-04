@@ -41,7 +41,7 @@ import lombok.ToString;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long id;
 	@NotNull
@@ -62,7 +62,8 @@ public class User {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
-	@NotNull(message = "Please Enter Date")
+	//@NotNull(message = "Please Enter Date")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate date_of_registration;
 	@Email(message = "Please Enter Valid Email")
 	@NotBlank(message = "Plase Enter Email")

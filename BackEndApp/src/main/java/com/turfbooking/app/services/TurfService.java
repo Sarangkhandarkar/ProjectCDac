@@ -11,4 +11,6 @@ public interface TurfService  {
 	TurfDetails findTurfById(Long id);
 	
 	List<TurfDetails> findAllTurf();
+	
+	TurfDetails getTurfByTurfOwnerId(Long id);
 }

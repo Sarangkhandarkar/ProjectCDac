@@ -16,6 +16,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,10 +32,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@JsonInclude(Include.NON_DEFAULT)
 public class SportsDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sport_id")
 	private Long sport_id;
 	@Column(length = 20)
@@ -43,10 +47,11 @@ public class SportsDetails {
 	@NotBlank(message = "Please Enter Price")
 	private Double price_per_hour;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "turf_id",nullable = true)
 	private TurfDetails turf_id;
 
-	@OneToMany(mappedBy = "sportDetails",cascade = CascadeType.ALL,orphanRemoval = true)
-	private List<TimeSlots> time_Slots;
+	@OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+	@JoinColumn(name = "time_id",referencedColumnName = "time_id")
+	private TimeSlots time_id;
 }
