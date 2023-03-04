@@ -30,7 +30,7 @@ import lombok.ToString;
 @ToString
 public class TurfDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "turf_id")
 	private Long turf_id;
 	@Column(length = 20)
@@ -43,11 +43,11 @@ public class TurfDetails {
 	private String city;
 	private String image;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne//(fetch = FetchType.EAGER)
 	@JoinColumn(name = "owner_id",nullable = true)
 	private User turf_owner_id;
 	
-	@OneToMany(mappedBy = "turf_id", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "turf_id",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<SportsDetails> sports;
 	
 }
