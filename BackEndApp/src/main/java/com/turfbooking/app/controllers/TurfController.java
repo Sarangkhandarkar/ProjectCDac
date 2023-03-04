@@ -50,6 +50,9 @@ public class TurfController {
 		return turfService.findAllTurf();
 	}
 	
+	@GetMapping("/turf_owner_id")
+	public TurfDetails getTurfDeetailsByTurfOwnerId(@PathVariable Long id) {
+		 return turfService.getTurfByTurfOwnerId(id);
+	}
 	
-
 }

@@ -30,7 +30,7 @@ public class TimeSlots {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "time_id")
-	private Long id;
+	private Long time_id;
 	@NotBlank(message = "Please Enter Time Slot")
 	private String time_slot;
 	
@@ -40,8 +40,8 @@ public class TimeSlots {
 	 * 
 	 * @JoinColumn(name = "turf_id") private TurfDetails turf_id;
 	 */
-	@ManyToOne(fetch = FetchType.LAZY )
-	@JoinColumn(name = "sports_id",nullable = true)
-	private SportsDetails sportDetails;
-	
+//	@OneToOne
+//	@JoinColumn(name = "sports_id",nullable = true)
+//	private SportsDetails sports_id;
+//	
 }
