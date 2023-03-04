@@ -36,7 +36,7 @@ import lombok.ToString;
 public class SportsDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sport_id")
 	private Long sport_id;
 	@Column(length = 20)
@@ -47,7 +47,7 @@ public class SportsDetails {
 	@NotBlank(message = "Please Enter Price")
 	private Double price_per_hour;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "turf_id",nullable = true)
 	private TurfDetails turf_id;
 

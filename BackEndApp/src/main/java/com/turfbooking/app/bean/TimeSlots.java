@@ -28,7 +28,7 @@ import lombok.ToString;
 public class TimeSlots {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "time_id")
 	private Long time_id;
 	@NotBlank(message = "Please Enter Time Slot")
