@@ -14,12 +14,6 @@ function Registrationform() {
     password: "",
     confirmpassword: ""
   })
-  // const [firstName , setFirstName] = useState("")
-  // const [lastName , setLastName] = useState("")
-  // const [email , setEmail] = useState("")
-  // const [contactno , setContactno] = useState("")
-  // const [password , setPassword] = useState("")
-  // const [confirmpassword , setConfirmpassword] = useState("")
 
 function handle(e){
   newdata = {...data}
