@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +37,7 @@ public class TurfDetails {
 	private Long turf_id;
 	@Column(length = 20)
 	@NotBlank(message = "Please Enter Turf Name")
-	private String turf_name;
+	private String name;
 	@Column(length = 50)
 	@NotBlank(message = "Please Enter address")
 	private String address;
@@ -44,10 +46,12 @@ public class TurfDetails {
 	private String image;
 	
 	@OneToOne//(fetch = FetchType.EAGER)
-	@JoinColumn(name = "owner_id",nullable = true)
-	private User turf_owner_id;
+	@JoinColumn(nullable = true)
+	private User ownerid;
 	
-	@OneToMany(mappedBy = "turf_id",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+	@OneToMany(targetEntity = SportsDetails.class, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "turf_fk",referencedColumnName = "turf_id")
 	private List<SportsDetails> sports;
 	
 }

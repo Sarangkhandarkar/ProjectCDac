@@ -29,10 +29,10 @@ import lombok.ToString;
 @Table(name = "sports_details")
 @Getter
 @Setter
-@AllArgsConstructor
+@AllArgsConstructor//(onConstructor=@__({@JsonCreator(mode = JsonCreator.Mode.DELEGATING)})
 @NoArgsConstructor
 @ToString
-@JsonInclude(Include.NON_DEFAULT)
+//@JsonInclude(Include.NON_DEFAULT)
 public class SportsDetails {
 
 	@Id
@@ -42,16 +42,11 @@ public class SportsDetails {
 	@Column(length = 20)
 	@NotBlank(message = "Please Enter SportsName")
 	private String sport_name;
-	@NotBlank(message = "Please Enter Players")
+	//@NotBlank(message = "Please Enter Players")
 	private Integer max_player;
-	@NotBlank(message = "Please Enter Price")
+	//@NotBlank(message = "Please Enter Price")
 	private Double price_per_hour;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "turf_id",nullable = true)
-	private TurfDetails turf_id;
-
-	@OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "time_id",referencedColumnName = "time_id")
 	private TimeSlots time_id;
 }

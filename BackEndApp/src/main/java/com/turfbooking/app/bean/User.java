@@ -44,36 +44,36 @@ public class User {
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long id;
-	@NotNull
+//	@NotNull
 	@Column(length = 20)
-	@NotBlank(message = "Please Enter First Name")
+//	@NotBlank(message = "Please Enter First Name")
 	private String first_name;
-	@NotNull
+//	@NotNull
 	@Column(length = 20)
-	@NotBlank(message = "Please Enter Last Name")
+//	@NotBlank(message = "Please Enter Last Name")
 	private String last_name;
-	@Pattern(regexp = "(^$|[0-9]{10})")
-	@NotNull
-	@Size(min = 10, max = 10)
-	@NotBlank(message = "Please Enter Phone Number")
+//	@Pattern(regexp = "(^$|[0-9]{10})")
+//	@NotNull
+//	@Size(min = 10, max = 10)
+//	@NotBlank(message = "Please Enter Phone Number")
 	private String contact_no;
-	@NotNull
-	@Column(length = 20, nullable = false)
+	//@NotNull
+	@Column(length = 20)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
 	//@NotNull(message = "Please Enter Date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate date_of_registration;
-	@Email(message = "Please Enter Valid Email")
-	@NotBlank(message = "Plase Enter Email")
+	//@Email(message = "Please Enter Valid Email")
+	//@NotBlank(message = "Plase Enter Email")
 	@Column(unique = true, nullable = false)
 	private String email;
-	@NotNull
-	@NotBlank(message = "Please Enter City")
+//	@NotNull
+//	@NotBlank(message = "Please Enter City")
 	private String location;
 	@Enumerated(EnumType.STRING)
-	@NotNull
+	//@NotNull
 	private Role role;
 	
 	public User(@NotNull @NotBlank(message = "Please Enter First Name") String first_name,
