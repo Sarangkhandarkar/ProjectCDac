@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import "./Loginform.css"
 import httpService from '../../http-service/http-service';
-//import apiurl from "./APIUrl.json"
-let newdata= "";
-// import axios from 'axios';
+import md5 from 'crypto-js/md5';
+
+
 function Registrationform() {
   // const url = "http://localhost:7070/students"
   const [data,setData] =useState({
@@ -22,7 +22,9 @@ function handle(e){
 
 function passMatch(e){
   if(data.password === e.target.value){
-    
+    let obj = {...data};
+    obj['password']=md5(e.target.value);
+    setData(obj);
   }else{
     e.target.setCustomValidity("password should match");
     //alert("password not match")
