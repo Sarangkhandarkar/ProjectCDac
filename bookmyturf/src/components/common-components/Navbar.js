@@ -1,12 +1,14 @@
 import {React, useState }from 'react'
-import { redirect } from 'react-router-dom'
 import httpService from '../http-service/http-service';
 
 export default function Navbar() {
+  const [serchtype,setSerchtype] = useState("");
   const [serchterm,setSearchterm] = useState("");
   function submit(e){
     e.preventDefault();
-    httpService.getByCity(serchterm);
+    setSerchtype(document.getElementById('searchtype').value);
+    console.log(serchterm);
+    httpService.SearchBy(serchtype,serchterm);
   }
   return (
     <div>
@@ -23,7 +25,7 @@ export default function Navbar() {
         </li>
         {/* login */}
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Login
           </a>
           <ul className="dropdown-menu">
@@ -35,35 +37,18 @@ export default function Navbar() {
           <a className="nav-link" href="/addturf">Addturf</a>
           
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/addsport">Addsport</a>
-          
-        </li>
-        
-        
-        {/* registerlogin */}
-        {/* <li className="nav-item">
-          <a className="nav-link" href="/registeruser">UserRegistration</a>
-        </li> */}
-        
-        {/* <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Admin
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> */}
-       {/* onSubmit={redirect("/search/"`{${serchterm}}`)} */}
       </ul>
-      <form className="d-flex col-5" role="search" onSubmit={(e) => submit(e)}>
-     
+      <form className="d-flex col-5 form-inline" role="search" onSubmit={(e) => submit(e)}>
+      <ul className='my-2 mx-2'>
+          {/* <label htmlFor='searchtype' className='bg-primary rounded'>Search by</label> */}
+          <select className='rounded' id='searchtype' onChange={(e)=>setSerchtype(e.target.value)}>
+            <option value="sports">Sports</option>
+            <option value="name" >Name</option>
+            <option value="city">City</option>
+        </select>
+      </ul>
         <input className="form-control" type="search" onChange={(e)=>{setSearchterm(e.target.value);console.log(serchterm)}} placeholder="Search" aria-label="Search"/>
         
-        <i class="cis-filter-square"></i>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

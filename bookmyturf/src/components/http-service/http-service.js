@@ -1,6 +1,8 @@
 import httpClient from "../../http-common";
 
-const getaAll = () => httpClient.get('');
+const getAll = () => httpClient.get('');
+
+const SearchBy = (serchtype,serchterm) => httpClient.get(`/turf/${serchtype}/${serchterm}`);
 
 const getByCity = (city) => httpClient.get(`/serch/${city}`);
 
@@ -12,17 +14,10 @@ const registerTurfOwner = (data) => httpClient.post('',data);
 
 const bookingRequest = (data) => httpClient.post('',data);
 
-const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`)
+const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`);
 
 const authenticateUser =(credentials) => httpClient.post('',credentials);
 
-const addturf =(data) =>httpClient.post("",data);
-const addSport =(data) =>httpClient.post("",data);
-const create = (data) => {
-    return httpClient.post('', data);
-  };
-  
-export default { create , getaAll , getByCity ,getByName,
-  registeruser,registerTurfOwner,bookingRequest,
-  deleteBooking,authenticateUser,addturf,addSport
-};
+const addturf =(data) => httpClient.post('',data);
+
+export default {getAll,SearchBy,getByCity,getByName,registeruser,registerTurfOwner,bookingRequest,deleteBooking,authenticateUser,addturf};
