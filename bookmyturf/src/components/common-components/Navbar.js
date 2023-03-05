@@ -31,9 +31,9 @@ export default function Navbar() {
             <li><a className="dropdown-item" href="/adminLogin">Admin</a></li>
           </ul>
         </li>
-        {/* <li className="nav-item">
-          <a className="nav-link" href="/userlogin">Userlogin</a>
-        </li> */}
+        <li className="nav-item">
+          <a className="nav-link" href="/addturf">Addturf</a>
+        </li>
         {/* registerlogin */}
         {/* <li className="nav-item">
           <a className="nav-link" href="/registeruser">UserRegistration</a>

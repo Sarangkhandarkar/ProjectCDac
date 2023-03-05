@@ -16,7 +16,7 @@ const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`)
 
 const authenticateUser =(credentials) => httpClient.post('',credentials);
 
-
+const addturf =(data) =>httpClient.post("",data);
 
 const create = (data) => {
     return httpClient.post('', data);
@@ -24,5 +24,5 @@ const create = (data) => {
   
 export default { create , getaAll , getByCity ,getByName,
   registeruser,registerTurfOwner,bookingRequest,
-  deleteBooking,authenticateUser
+  deleteBooking,authenticateUser,addturf
 };

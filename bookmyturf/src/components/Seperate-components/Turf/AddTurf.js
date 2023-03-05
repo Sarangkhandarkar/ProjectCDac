@@ -1,8 +1,27 @@
 import {useState} from "react";
 
 import React from 'react'
+import httpService from "../../http-service/http-service";
 
 export default function AddTurf() {
+  const [data,setData] = useState({
+    turfid : "",
+    turf_name : "",
+    address : "",
+    city : "",
+    image : "",
+    turf_owner_id : "",
+    sport_id : ""
+  });
+  function handleChange(e){
+    let newdata = {...data}
+    newdata[e.target.id] = e.target.value;
+    setData(newdata);
+  }
+  function submit(e){
+    e.preventDefault();
+    httpService.addturf(data);
+  }
   return (
     <div>
         <center><h1>Add Turf</h1></center>
@@ -11,9 +30,8 @@ export default function AddTurf() {
           <input
             type='text'
             className='form-group row'
-            id='turfName'
-            value="turfName"
-            onChange={(e) => setTurfName(e.target.value)}
+            id='turf_name'
+            onChange={(e)=>handleChange(e)}
             placeholder='Enter turf name'
           />
         </div>
@@ -22,8 +40,7 @@ export default function AddTurf() {
             type='text'
             className='form-group row'
             id='address'
-            value="address"
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={(e)=>handleChange(e)}
             placeholder='Enter Address '
           />
         </div>
@@ -32,8 +49,7 @@ export default function AddTurf() {
             type='text'
             className='form-group row'
             id='city'
-            value="city"
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e)=>handleChange(e)}
             placeholder='Enter City '
           />
         </div>
@@ -42,8 +58,7 @@ export default function AddTurf() {
             type='text'
             className='form-group row'
             id='image'
-            value="image"
-            onChange={(e) => setImage(e.target.value)}
+            onChange={(e)=>handleChange(e)}
             placeholder='Enter Image'
           />
         </div>
@@ -51,9 +66,8 @@ export default function AddTurf() {
           <input
             type='text'
             className='form-group row'
-            id='ownerId'
-            value="ownerId"
-            onChange={(e) => setOwnerId(e.target.value)}
+            id='turf_owner_id'
+            onChange={(e)=>handleChange(e)}
             placeholder='Enter OwnerId'
           />
         </div>
@@ -61,14 +75,13 @@ export default function AddTurf() {
           <input
             type='text'
             className='form-group row'
-            id='sportsId'
-            value="sportsId"
-            onChange={(e) => setSportsId(e.target.value)}
+            id='sport_id'
+            onChange={(e)=>handleChange(e)}
             placeholder='Enter SportsId'
           />
         </div>
         <div>
-          <button onClick={(e) => saveTurf(e)} className='btn btn-primary' value="Addturf">
+          <button onClick={(e)=>submit(e)} className='btn btn-primary' value="Addturf">
             Save Or Update
           </button>
         </div>
