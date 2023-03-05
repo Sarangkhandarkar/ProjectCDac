@@ -2,7 +2,7 @@ import httpClient from "../../http-common";
 
 const getaAll = () => httpClient.get('');
 
-const getByCity = (city) => httpClient.get(`${city}`);
+const getByCity = (city) => httpClient.get(`/serch/${city}`);
 
 const getByName = (turf) => httpClient.get(`${turf}`);
 
@@ -12,7 +12,7 @@ const registerTurfOwner = (data) => httpClient.post('',data);
 
 const bookingRequest = (data) => httpClient.post('',data);
 
-const deleteBooking = (bookingid) => httpClient.get('/cancel/'`${bookingid}`)
+const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`)
 
 const authenticateUser =(credentials) => httpClient.post('',credentials);
 
