@@ -47,6 +47,26 @@ export default function AddTurf() {
             placeholder='Enter Image'
           />
         </div>
+        <div className=" userform row ">
+          <input
+            type='text'
+            className='form-group row'
+            id='ownerId'
+            value="ownerId"
+            onChange={(e) => setOwnerId(e.target.value)}
+            placeholder='Enter OwnerId'
+          />
+        </div>
+        <div className=" userform row ">
+          <input
+            type='text'
+            className='form-group row'
+            id='sportsId'
+            value="sportsId"
+            onChange={(e) => setSportsId(e.target.value)}
+            placeholder='Enter SportsId'
+          />
+        </div>
         <div>
           <button onClick={(e) => saveTurf(e)} className='btn btn-primary' value="Addturf">
             Save Or Update
