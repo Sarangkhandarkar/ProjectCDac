@@ -56,28 +56,28 @@ function submit(e){
         
 
       <div className="form-group row">
-                <label htmlFor="firstname" className='col-sm-2 col-form-label' >First Name:</label>
+                <label htmlFor="firstname" className='col-sm-2 col-form-label bg-light rounded h-25' >First Name:</label>
                   <div className="col-sm-10">
                   <input className='form-control' onBlur={(e)=>handle(e)} type="text" id="firstname" name="firstname" required /><br/>
                   </div>
       </div>
-
+                  {/* col-sm-3 col-form-label col-form-label-sm text-left */}
       <div className="form-group row">
-                <label htmlFor="lastname" className='col-sm-2 col-form-label'>Last Name:</label>
+                <label htmlFor="lastname" className='col-sm-2 col-form-label bg-light rounded h-25'>Last Name:</label>
                   <div className="col-sm-10">
                   <input className='form-control' onBlur={(e)=>handle(e)} type="text" id="lastname" name="lastname" required/><br/>
                   </div>
       </div>
 
       <div className="form-group row">
-                  <label htmlFor="email" className='col-sm-2 col-form-label'>Email:</label>
+                  <label htmlFor="email" className='col-sm-2 col-form-label bg-light rounded h-25'>Email:</label>
                   <div className="col-sm-10">
                   <input className='form-control' onBlur={(e)=>handle(e)}  type="text" id="email" name="email" required /><br/>
                   </div>
       </div>
 
       <div className="form-group row">
-      <label htmlFor="contactno" className='col-sm-2 col-form-label'>Contact Number:</label>
+      <label htmlFor="contactno" className='col-sm-2 col-form-label bg-light rounded h-25'>Contact Number:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="tel" onBlur={(e)=>handle(e)} id="contactno" name="contactno" required/><br/>
 
@@ -85,14 +85,14 @@ function submit(e){
       </div>
 
       <div className="form-group row">
-                 <label htmlFor="password" className='col-sm-2 col-form-label'>Password:</label>
+                 <label htmlFor="password" className='col-sm-2 col-form-label bg-light rounded h-25'>Password:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="password" onBlur={(e)=>handle(e)} id="password" name="password" required/><br/>
                   </div>
       </div>
 
       <div className="form-group row">
-                  <label htmlFor="confirmpassword" className='col-sm-2 col-form-label'>Confirm Password:</label>
+                  <label htmlFor="confirmpassword" className='col-sm-2 col-form-label bg-light rounded h-25'>Confirm Password:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="password" onBlur={(e)=>passMatch(e)} id="confirmpassword" name="confirmpassword" required/><br/>
                   </div>
