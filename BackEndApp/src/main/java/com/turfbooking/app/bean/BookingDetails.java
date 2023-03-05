@@ -35,19 +35,18 @@ public class BookingDetails {
 	private Long id;
 
 	//@NotNull(message = "Please Enter Date")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private int time_slot;
 	//@Pattern(regexp = "^(true|false)$", message = "restartable field allowed input: true or false")
 	private boolean booking_status;
 	//@Pattern(regexp = "^(true|false)$", message = "restartable field allowed input: true or false")
 	private boolean payment_status;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
-	@JoinColumn(name = "user_id", insertable = false, updatable = false)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
 	private User user_id;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
-	@JoinColumn(name = "turf_id", insertable = false, updatable = false)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "turf_id")
 	private TurfDetails turf_id;
 
 }

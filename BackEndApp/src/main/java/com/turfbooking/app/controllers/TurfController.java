@@ -32,7 +32,7 @@ public class TurfController {
 	     return turfService.addTurf(turf);	
 	}
 	
-	@GetMapping("/turf_id")
+	@GetMapping("/turf/{turf_id}")
 	public TurfDetails getTurfById(@PathVariable Long turf_id) throws Exception
 	{
 		TurfDetails turf = turfService.findTurfById(turf_id);
@@ -46,13 +46,18 @@ public class TurfController {
 	
 	@GetMapping("/turflist")
 	public List<TurfDetails> findAll(){
-		
 		return turfService.findAllTurf();
 	}
 	
-	@GetMapping("/turf_owner_id")
-	public TurfDetails getTurfDeetailsByTurfOwnerId(@PathVariable Long id) {
-		 return turfService.getTurfByTurfOwnerId(id);
+	@GetMapping("/{name}")
+	public List<TurfDetails> getTurfByName(@PathVariable String name){
+		return turfService.getTurfByName(name);
+	}
+	
+	@GetMapping("/turf/city/{city}")
+	public List<TurfDetails> getTurfByCity(@PathVariable String city)
+	{
+		return turfService.getTurfByCity(city);
 	}
 	
 }

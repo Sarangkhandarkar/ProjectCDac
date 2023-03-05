@@ -34,10 +34,14 @@ public class TurfDetailsImpl implements TurfService {
 	}
 
 	@Override
-	public TurfDetails getTurfByTurfOwnerId(Long id) {
-		List<TurfDetails> turfList = turfRepo.findAll();
-		TurfDetails turfDetails = (TurfDetails) turfList.stream().filter(p -> p.getTurf_owner_id().getId() == id);
-		return turfDetails;
+	public List<TurfDetails> getTurfByName(String key) {
+		return turfRepo.findTurfByName(key);
 	}
+
+	@Override
+	public List<TurfDetails> getTurfByCity(String key) {
+		return turfRepo.findTurfByCity(key);
+	}
+	
 
 }
