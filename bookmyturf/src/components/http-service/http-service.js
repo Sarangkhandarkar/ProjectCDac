@@ -17,12 +17,12 @@ const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`)
 const authenticateUser =(credentials) => httpClient.post('',credentials);
 
 const addturf =(data) =>httpClient.post("",data);
-
+const addSport =(data) =>httpClient.post("",data);
 const create = (data) => {
     return httpClient.post('', data);
   };
   
 export default { create , getaAll , getByCity ,getByName,
   registeruser,registerTurfOwner,bookingRequest,
-  deleteBooking,authenticateUser,addturf
+  deleteBooking,authenticateUser,addturf,addSport
 };

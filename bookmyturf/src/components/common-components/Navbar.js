@@ -33,7 +33,14 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/addturf">Addturf</a>
+          
         </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/addsport">Addsport</a>
+          
+        </li>
+        
+        
         {/* registerlogin */}
         {/* <li className="nav-item">
           <a className="nav-link" href="/registeruser">UserRegistration</a>
@@ -53,7 +60,10 @@ export default function Navbar() {
        {/* onSubmit={redirect("/search/"`{${serchterm}}`)} */}
       </ul>
       <form className="d-flex col-5" role="search" onSubmit={(e) => submit(e)}>
+     
         <input className="form-control" type="search" onChange={(e)=>{setSearchterm(e.target.value);console.log(serchterm)}} placeholder="Search" aria-label="Search"/>
+        
+        <i class="cis-filter-square"></i>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
