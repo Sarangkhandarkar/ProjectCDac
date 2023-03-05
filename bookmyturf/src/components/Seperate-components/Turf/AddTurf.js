@@ -20,7 +20,7 @@ export default function AddTurf() {
   }
   function submit(e){
     e.preventDefault();
-    httpService.addturf(data);
+    httpService.addturf(data).then((resp)=>console.log(resp.data))
   }
   return (
     <div>

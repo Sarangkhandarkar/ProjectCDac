@@ -51,9 +51,17 @@ export default function Navbar() {
           </ul>
         </li> */}
        {/* onSubmit={redirect("/search/"`{${serchterm}}`)} */}
+       
       </ul>
       <form className="d-flex col-5" role="search" onSubmit={(e) => submit(e)}>
+      <ul className="nav-item p-1 col-2 dropdown m-2 bg-light rounded"><a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Search by</a>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href="/userLogin">User</a></li>
+            <li><a className="dropdown-item" href="/adminLogin">Admin</a></li>
+          </ul>
+        </ul>
         <input className="form-control" type="search" onChange={(e)=>{setSearchterm(e.target.value);console.log(serchterm)}} placeholder="Search" aria-label="Search"/>
+        
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
