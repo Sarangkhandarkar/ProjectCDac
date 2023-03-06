@@ -5,7 +5,6 @@ import Loginform from './components/Seperate-components/User/Loginform';
 import Registrationform from './components/Seperate-components/User/Registrationform';
 import AddTurf from './components/Seperate-components/Turf/AddTurf';
 import Homepage from './components/common-components/Homepage'
-import i1 from './images/image1.jpg'
 import { logincontext } from './components/Contexts/Logincontext';
 
 function App() {
