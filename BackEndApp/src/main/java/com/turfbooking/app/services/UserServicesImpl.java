@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.turfbooking.app.bean.User;
+import com.turfbooking.app.dto.LoginRequestDto;
 import com.turfbooking.app.repositories.UserRepository;
 
 @Service
@@ -28,7 +29,7 @@ public class UserServicesImpl implements UserServices {
 	}
 
 	@Override
-	public User findByEmailAndPassword(String email, String password) {
+	public User findByEmailAndPassword(LoginRequestDto dto) {
 		return userRepo.findByEmailAndPassword(email, password);
 	
 	}

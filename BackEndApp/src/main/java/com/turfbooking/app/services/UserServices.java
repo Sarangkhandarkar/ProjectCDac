@@ -3,6 +3,7 @@ package com.turfbooking.app.services;
 import java.util.List;
 
 import com.turfbooking.app.bean.User;
+import com.turfbooking.app.dto.LoginRequestDto;
 
 public interface UserServices {
 
@@ -15,7 +16,9 @@ public interface UserServices {
 	User findById(Long id);
 	
 	User updateUserDetails(User user);
+
+	User findByEmailAndPassword(LoginRequestDto dto);
 	
-	//User findTurfOwnerByEmailAndPassword(String email , String password);
+
 	
 }

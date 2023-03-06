@@ -2,7 +2,11 @@ package com.turfbooking.app.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,20 +28,23 @@ public class UserController {
 	private UserServices userServices;
 
 	public UserController() {
-		System.out.println("IIn Ctor " + getClass().getName());
+		System.out.println("In Ctor " + getClass().getName());
 	}
 
-	@GetMapping
-	public List<User> fetchAllUsers() {
+	@GetMapping("/userlist")
+	public ResponseEntity<?> fetchAllUsers() {
 		System.out.println("In fetch all USers");
 		List<User> userList = userServices.getAllUers();
-		return userList;
+		if(userList.isEmpty())
+			return new ResponseEntity<>("User List Is empty !!!!",HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(userList,HttpStatus.OK);
 	}
 
-	@PostMapping
-	public User addUser(@RequestBody User user) {
+	@PostMapping("/saveuser")
+	public ResponseEntity<User> addUser(@RequestBody @Valid User user) {
 		System.out.println("In save emp " + user + " id " + user.getId());
-		return userServices.addUser(user);
+		
+		return new ResponseEntity<User>(userServices.addUser(user),HttpStatus.CREATED);
 	}
 	
 	// API to get turf_owner

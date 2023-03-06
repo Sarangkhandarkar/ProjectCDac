@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -27,14 +30,15 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Validated
 public class BookingDetails {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "booking_id")
 	private Long id;
 
-	//@NotNull(message = "Please Enter Date")
+	@NotNull(message = "Please Enter Date")
 	private int time_slot;
 	//@Pattern(regexp = "^(true|false)$", message = "restartable field allowed input: true or false")
 	private boolean booking_status;

@@ -10,14 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -38,42 +36,43 @@ import lombok.ToString;
 @ToString(exclude = "password")
 @Entity
 @Table(name = "user_table")
+@Validated
 public class User {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Long id;
-//	@NotNull
+	@NotNull
 	@Column(length = 20)
-//	@NotBlank(message = "Please Enter First Name")
+	@NotBlank(message = "Please Enter First Name")
 	private String first_name;
-//	@NotNull
+	@NotNull
 	@Column(length = 20)
-//	@NotBlank(message = "Please Enter Last Name")
+	@NotBlank(message = "Please Enter Last Name")
 	private String last_name;
-//	@Pattern(regexp = "(^$|[0-9]{10})")
-//	@NotNull
-//	@Size(min = 10, max = 10)
-//	@NotBlank(message = "Please Enter Phone Number")
+	@Pattern(regexp = "(^$|[0-9]{10})")
+	@NotNull
+	@Size(min = 10, max = 10)
+	@NotBlank(message = "Please Enter Phone Number")
 	private String contact_no;
-	//@NotNull
+	@NotNull
 	@Column(length = 20)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
-	//@NotNull(message = "Please Enter Date")
+	@NotNull(message = "Please Enter Date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate date_of_registration;
-	//@Email(message = "Please Enter Valid Email")
-	//@NotBlank(message = "Plase Enter Email")
+	@Email(message = "Please Enter Valid Email")
+	@NotBlank(message = "Plase Enter Email")
 	@Column(unique = true, nullable = false)
 	private String email;
-//	@NotNull
-//	@NotBlank(message = "Please Enter City")
+	@NotNull
+	@NotBlank(message = "Please Enter City")
 	private String location;
 	@Enumerated(EnumType.STRING)
-	//@NotNull
+	@NotNull
 	private Role role;
 	
 	public User(@NotNull @NotBlank(message = "Please Enter First Name") String first_name,
