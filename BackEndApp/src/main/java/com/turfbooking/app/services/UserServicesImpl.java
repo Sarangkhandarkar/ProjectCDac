@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.turfbooking.app.bean.User;
+import com.turfbooking.app.customexception.ResourceNotFoundException;
+import com.turfbooking.app.dto.LoginRequestDto;
 import com.turfbooking.app.repositories.UserRepository;
 
 @Service
@@ -28,19 +30,26 @@ public class UserServicesImpl implements UserServices {
 	}
 
 	@Override
-	public User findByEmailAndPassword(String email, String password) {
-		return userRepo.findByEmailAndPassword(email, password);
+	public User findByEmailAndPassword(String email,String password) {
+		User user = userRepo.findByEmailAndPassword(email ,password);
+		return user;
 	
 	}
 
 	@Override
 	public User findById(Long id) {
-		return userRepo.findById(id).get();
+		return userRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Invalid Id !!!!"));
 	}
 
 	@Override
-	public User updateUserDetails(User user) {
-		return userRepo.save(user);
+	public String updateUserDetails(User user) {
+		
+		if(userRepo.existsById(user.getId()))
+		{
+			userRepo.save(user);
+			return "User Data Updated Successfully !!";
+		}
+		return "User Data Updation is Failed !!!!";
 	}
 
 	

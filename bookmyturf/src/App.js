@@ -6,19 +6,22 @@ import Registrationform from './components/Seperate-components/User/Registration
 import AddTurf from './components/Seperate-components/Turf/AddTurf';
 import Homepage from './components/common-components/Homepage'
 import i1 from './images/image1.jpg'
+import { logincontext } from './components/Contexts/Logincontext';
 
 function App() {
   return (
     <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
-    <div className="container">
+    <div className="container" >
+    <logincontext.Provider value={logincontext}>
       <Routes>
         <Route path="/userLogin" element={<Loginform/>} />
         <Route path="/registeruser" element={<Registrationform/>} />
         <Route path="/addturf" element={<AddTurf/>} />
         <Route path="/" element={<Homepage/>} />
       </Routes>
+      </logincontext.Provider>
     </div>
     </BrowserRouter>
   );

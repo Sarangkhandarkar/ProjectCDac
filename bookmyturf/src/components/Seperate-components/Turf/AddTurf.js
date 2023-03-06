@@ -7,7 +7,7 @@ import  "../Sport/AddSport"
 export default function AddTurf() {
   const [data,setData] = useState({
     turf_id : "",
-    turf_name : "",
+    name : "",
     address : "",
     city : "",
     image : "",
@@ -26,15 +26,15 @@ export default function AddTurf() {
   return (
     <div>
         <center><h1>Add Turf</h1></center>
-         <form className=" userform row" >
+         <form >
 
          <div className="  mb-3 row ">
-         <label htmlFor="turf_name" className='col-sm-2 col-form-label' >Turf Name:</label>
+         <label htmlFor="name" className='col-sm-2 col-form-label' >Turf Name:</label>
          <div className="col-sm-10">
           <input
             type='text'
             className='form-control'
-            id='turf_name'
+            id='name'
             onChange={(e)=>handleChange(e)}
             placeholder='Enter turf name'
           />
