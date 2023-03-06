@@ -10,14 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import org.springframework.validation.annotation.Validated;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,20 +32,22 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 //@JsonInclude(Include.NON_DEFAULT)
+@Validated
 public class SportsDetails {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sport_id")
 	private Long sport_id;
 	@Column(length = 20)
-	@NotBlank(message = "Please Enter SportsName")
-	private String sport_name;
-	//@NotBlank(message = "Please Enter Players")
+	@NotNull(message = "Please Enter SportsName")
+	private String sportsName;
+	@NotNull(message = "Please Enter Players")
 	private Integer max_player;
-	//@NotBlank(message = "Please Enter Price")
+	@NotNull(message = "Please Enter Price")
 	private Double price_per_hour;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "time_id",referencedColumnName = "time_id")
-	private TimeSlots time_id;
+	
+	@OneToMany(targetEntity = TimeSlots.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name="sports_fk",referencedColumnName = "sport_id")
+	private List<TimeSlots> time_slots;
 }

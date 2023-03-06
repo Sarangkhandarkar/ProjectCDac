@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.springframework.validation.annotation.Validated;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +30,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Validated
 public class TurfDetails {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "turf_id")
 	private Long turf_id;
 	@Column(length = 20)
@@ -51,7 +52,7 @@ public class TurfDetails {
 	
 
 	@OneToMany(targetEntity = SportsDetails.class, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "turf_fk",referencedColumnName = "turf_id")
+	@JoinColumn(name = "turf_id",referencedColumnName = "turf_id")
 	private List<SportsDetails> sports;
 	
 }
