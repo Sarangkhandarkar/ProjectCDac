@@ -24,7 +24,7 @@ export default function AddTurf() {
     httpService.addturf(data).then((resp)=>console.log(resp.data))
   }
   return (
-    <div className="text-danger">
+    <div className="text-danger bg-light rounded-4 p-5 mt-5">
         <center><h1>Add Turf</h1></center>
          <form >
 
@@ -82,26 +82,41 @@ export default function AddTurf() {
         </div>
         </div>
         {/* check boxes */}
-        <div className="  mb-3 row ">
-        <label htmlFor="image" className='col-sm-2 col-form-label' >Select Sports</label>
-        <div className="col-sm-10 ">
-          <input type='checkbox' className='form-check-input' id='checkbox1'></input>
-          <label htmlFor="checkbox1" className="form-check-label">. Cricket</label>
-          <div className="input-group-sm"><input type='text' placeholder="Rate"></input></div>
+      <div className="row">
+        <div className="col"><label htmlFor="image" className='col-sm-5 col-form-label' >Select Sports</label></div>
+        <div className="col">
+              <input type='checkbox' className='form-check-input' id='checkbox1'></input>
+              <label htmlFor="checkbox1" className="form-check-label">. Cricket</label>
         </div>
+        <div className="col col-xs-4">
+            <input type='text'  placeholder="Rate"></input>  
         </div>
+        <div className="col col-xs-4">
+            <input type='text' placeholder="Max No of Players"></input>  
+        </div>
+        <div className="col col-xs-4">
+            <input type='text' placeholder="Time slot"></input>  
+        </div>
+      </div>
+
+
+
+
+
+        {/* <div className="mb-3 row ">
+                <label htmlFor="image" className='col-sm-2 col-form-label' >Select Sports</label>
+          <div className="col-sm-10 col">
+              <input type='checkbox' className='form-check-input' id='checkbox1'></input>
+              <label htmlFor="checkbox1" className="form-check-label">. Cricket</label>
+          </div>  
+              <div className="input-group-sm">
+                <input type='text' placeholder="Rate"></input>
+          </div>
+        </div> */}
         
-        
+        {/* <label htmlFor="cheackbox" className='col-sm-2 col-form-label'>Select Sports</label> */}
         <div>
-          <label htmlFor="cheackbox" className='col-sm-2 col-form-label'>Select Sports</label>
-        <div name='cheackbox'>
-          <input type='checkbox' value='1' id="1"></input>
-        </div>
-        <div>
-          <button onClick={(e)=>submit(e)}  className='btn btn-primary' value="Addturf">
-            Save Or Update
-          </button>
-        </div>
+            <button onClick={(e)=>submit(e)}  className='btn btn-primary' value="Addturf">Save Or Update</button>
         </div>
          </form>
     </div>
