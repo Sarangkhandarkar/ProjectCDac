@@ -8,7 +8,7 @@ const getByCity = (city) => httpClient.get(`/serch/${city}`);
 
 const getByName = (turf) => httpClient.get(`${turf}`);
 
-const registeruser = (data) => httpClient.post('',data);
+const registeruser = (data) => httpClient.post('/users/saveuser',data);
 
 const registerTurfOwner = (data) => httpClient.post('',data);
 
@@ -16,7 +16,9 @@ const bookingRequest = (data) => httpClient.post('',data);
 
 const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`);
 
-const authenticateUser =(credentials) => httpClient.post('',credentials);
+const authenticateUser =(credentials) => httpClient.post('/users/authenticate/turfOwner',credentials);
+
+//const authenticateOwner =(credentials) => httpClient.post('/users/authenticate/turfOwner',credentials);
 
 const addturf =(data) => httpClient.post('',data);
 

@@ -11,8 +11,8 @@ export default function AddTurf() {
     address : "",
     city : "",
     image : "",
-    turf_owner_id : "",
-    sport_id : ""
+    ownerid : {id : ""},
+    sports :[]
   });
   function handleChange(e){
     let newdata = {...data}
@@ -24,7 +24,7 @@ export default function AddTurf() {
     httpService.addturf(data).then((resp)=>console.log(resp.data))
   }
   return (
-    <div>
+    <div className="text-danger">
         <center><h1>Add Turf</h1></center>
          <form >
 
@@ -81,11 +81,27 @@ export default function AddTurf() {
           />
         </div>
         </div>
+        {/* check boxes */}
+        <div className="  mb-3 row ">
+        <label htmlFor="image" className='col-sm-2 col-form-label' >Select Sports</label>
+        <div className="col-sm-10 ">
+          <input type='checkbox' className='form-check-input' id='checkbox1'></input>
+          <label htmlFor="checkbox1" className="form-check-label">. Cricket</label>
+          <div className="input-group-sm"><input type='text' placeholder="Rate"></input></div>
+        </div>
+        </div>
         
+        
+        <div>
+          <label htmlFor="cheackbox" className='col-sm-2 col-form-label'>Select Sports</label>
+        <div name='cheackbox'>
+          <input type='checkbox' value='1' id="1"></input>
+        </div>
         <div>
           <button onClick={(e)=>submit(e)}  className='btn btn-primary' value="Addturf">
             Save Or Update
           </button>
+        </div>
         </div>
          </form>
     </div>
