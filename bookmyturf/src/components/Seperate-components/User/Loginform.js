@@ -9,7 +9,9 @@ export default function Loginform() {
 	});
 
 	function handlechange(e){
-		loginDetails[e.target.name] = e.target.value;
+		let newloginDetails = {...loginDetails}
+		newloginDetails[e.target.name] = e.target.value;
+		setLoginDetails(newloginDetails);
 	}
 
   return (
