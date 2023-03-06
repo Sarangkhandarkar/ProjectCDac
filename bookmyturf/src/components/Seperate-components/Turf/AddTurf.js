@@ -26,7 +26,7 @@ export default function AddTurf() {
   return (
     <div>
         <center><h1>Add Turf</h1></center>
-         <form className=" userform row" >
+         <form >
 
          <div className="  mb-3 row ">
          <label htmlFor="turf_name" className='col-sm-2 col-form-label' >Turf Name:</label>
