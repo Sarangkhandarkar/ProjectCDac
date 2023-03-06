@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.turfbooking.app.bean.Role;
 import com.turfbooking.app.bean.User;
+import com.turfbooking.app.dto.LoginRequestDto;
+import com.turfbooking.app.services.TurfService;
 import com.turfbooking.app.services.UserServices;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
 	@Autowired
@@ -49,29 +53,37 @@ public class UserController {
 	
 	// API to get turf_owner
 	@PostMapping("/authenticate/turfOwner")
-	public User findTurfOwnerEmailAndPassword(@RequestParam String email,@RequestParam String password)
+	public ResponseEntity<?> findTurfOwnerEmailAndPassword(@RequestParam String email,@RequestParam String password)
 	{
+		System.out.println("In Turf owner login");
 		User user = userServices.findByEmailAndPassword(email, password);
-		if(user.getRole().equals(Role.TURF_OWNER))
+		if(user != null && user.getRole().equals(Role.TURF_OWNER))
 		{
-			return user;
+			return new ResponseEntity<>(user,HttpStatus.FOUND);
 		}
-		return null;
-		
+		return new ResponseEntity<>("Inavlid Credentials !!!!",HttpStatus.BAD_REQUEST);
 	}
 
 	@PostMapping("/{authenticate}")
-	public User findByUserIdAndPassword(@RequestParam String email, @RequestParam String password) {
-		return userServices.findByEmailAndPassword(email, password);
+	public ResponseEntity<?> findUserByEmailAndPassword(@RequestParam String email,@RequestParam String password) {
+		System.out.println("In Validate user");
+		User user = userServices.findByEmailAndPassword(email,password);
+		if(user != null)
+		{
+			return new ResponseEntity<>(user,HttpStatus.FOUND);
+		}
+		
+		return new ResponseEntity<>("Invalid Credentials !!!!" , HttpStatus.BAD_REQUEST);
 	}
 
 	@GetMapping("/{id}")
-	public User getUserByid(@PathVariable Long id) {
-		return userServices.findById(id);
+	public ResponseEntity<?> getUserByid(@PathVariable Long id) {
+		System.out.println("In FindUser By id");
+		return ResponseEntity.ok(userServices.findById(id));
 	}
 
-	@PutMapping("/{id}")
-	public User updateUser(@PathVariable Long id, @RequestBody User user) {
+	@PutMapping("/updateuser")
+	public String updateUser( @RequestBody User user) {
 		System.out.println("user to update" + user);
 		return userServices.updateUserDetails(user);
 	}

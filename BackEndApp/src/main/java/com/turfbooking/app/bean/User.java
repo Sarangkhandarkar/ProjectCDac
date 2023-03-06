@@ -91,6 +91,7 @@ public class User {
 		this.location = location;
 		this.role = role;
 	}
+
 	
 	
 

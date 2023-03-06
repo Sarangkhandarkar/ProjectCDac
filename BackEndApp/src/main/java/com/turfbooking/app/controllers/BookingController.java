@@ -16,7 +16,7 @@ public class BookingController {
 	@Autowired
 	private IBookingService bookingService;
 	
-	@PostMapping
+	@PostMapping("/AddBooking")
 	public BookingDetails addBooking(@RequestBody BookingDetails booking)
 	{
 		return bookingService.addBooking(booking);

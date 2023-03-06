@@ -15,9 +15,10 @@ public interface UserServices {
 
 	User findById(Long id);
 	
-	User updateUserDetails(User user);
+	String updateUserDetails(User user);
 
-	User findByEmailAndPassword(LoginRequestDto dto);
+
+
 	
 
 	

@@ -44,6 +44,7 @@ public class TurfController {
 	@GetMapping("/turf/{turf_id}")
 	public ResponseEntity<?> getTurfById(@PathVariable Long turf_id)  
 	{
+		System.out.println("In turf by id");
 		return ResponseEntity.ok(turfService.findTurfById(turf_id));
 		 
 	}
