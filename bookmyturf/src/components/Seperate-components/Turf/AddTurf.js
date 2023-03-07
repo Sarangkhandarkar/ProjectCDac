@@ -104,7 +104,7 @@ export default function AddTurf() {
             <option value="">Sport Name</option>
             <option value="1">Cricket</option>
             <option value="2" >Football</option>
-            <option value="3">Batminton</option>
+            <option value="3">Badminton</option>
             <option value="4">Table Tennis</option>
             <option value="5">Lawn Tennis</option>
           </select>

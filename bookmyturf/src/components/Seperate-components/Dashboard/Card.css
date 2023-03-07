@@ -1,0 +1,19 @@
+#container{
+margin-top: 50px;
+width: 1200px;
+overflow: hidden;
+box-shadow: 0px 0px 50px 2px;
+transition: 0.3s;
+animation: ease-in-out;
+margin-left: 30px;
+
+}
+#container:hover{
+    transform: scale(1.1);
+    box-shadow:0px 0px 50px 0px ;
+}
+
+#Homepage{
+    margin-top: 300px;
+    width: 20px;
+}

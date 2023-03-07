@@ -4,11 +4,14 @@ import httpService from '../http-service/http-service';
 export default function Navbar() {
   const [serchtype,setSerchtype] = useState("");
   const [serchterm,setSearchterm] = useState("");
+
+
   function submit(e){
     e.preventDefault();
     setSerchtype(document.getElementById('searchtype').value);
     console.log(serchterm);
     httpService.SearchBy(serchtype,serchterm);
+  
   }
   return (
     <div>
@@ -18,6 +21,7 @@ export default function Navbar() {
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
+    
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
@@ -47,6 +51,7 @@ export default function Navbar() {
             <option value="city">City</option>
         </select>
       </ul>
+
         <input className="form-control" type="search" onChange={(e)=>{setSearchterm(e.target.value);console.log(serchterm)}} placeholder="Search" aria-label="Search"/>
         
         <button className="btn btn-outline-success" type="submit">Search</button>
