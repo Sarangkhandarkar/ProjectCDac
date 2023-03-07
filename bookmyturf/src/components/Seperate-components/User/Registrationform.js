@@ -41,7 +41,7 @@ function handle(e){
 function passMatch(e){
   if(data.password === e.target.value){
     let obj = {...data};
-    obj['password']=e.target.value;
+    obj['password']=md5(e.target.value);
     setData(obj);
   }else{
     e.target.setCustomValidity("password should match");
@@ -68,36 +68,36 @@ function submit(e){
   data['date_of_registration']=new Date().toLocaleDateString();
 }
   return (
-    <div className='registerform'  >
-        <center><h1 >User Registration</h1></center>
+    <div className='registerform pe-5'  >
+        <center><h1 className='mb-2 text-light'>User Registration</h1></center>
       <form autocomplete="off" onSubmit={(e) => submit(e)}>
      
         
 
       <div className="form-group row" >
         
-                <label htmlFor="first_name" className='col-sm-2 col-form-label rounded h-25' >First Name:</label>
+                <label htmlFor="first_name" className='col-sm-2 col-form-label fw-bold   text-end text-light  rounded-2 h-25' >First Name:</label>
                   <div className="col-sm-10">
                   <input className='form-control col-xs-4 ' onBlur={(e)=>handle(e)} type="text" id="first_name" name="first_name" required /><br/>
                   </div>
       </div>
-                  {/* col-sm-3 col-form-label col-form-label-sm text-left */}
+                  {/* col-sm-3 col-form-label fw-bold   text-end text-light rounded-2  col-form-label fw-bold   text-end text-light rounded-2 -sm text-left */}
       <div className="form-group row">
-                <label htmlFor="last_name" className='col-sm-2 col-form-label  rounded h-25'>Last Name:</label>
+                <label htmlFor="last_name" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2  h-25'>Last Name:</label>
                   <div className="col-sm-10">
                   <input className='form-control' onBlur={(e)=>handle(e)} type="text" id="last_name" name="last_name" required/><br/>
                   </div>
       </div>
 
       <div className="form-group row">
-                  <label htmlFor="email" className='col-sm-2 col-form-label  rounded h-25'>Email:</label>
+                  <label htmlFor="email" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2  h-25'>Email:</label>
                   <div className="col-sm-10">
                   <input className='form-control' onBlur={(e)=>handle(e)}  type="text" id="email" name="email" required /><br/>
                   </div>
       </div>
 
       <div className="form-group row">
-      <label htmlFor="contact_no" className='col-sm-2 col-form-label  rounded h-25'>Contact Number:</label>
+      <label htmlFor="contact_no" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2  h-25'>Contact Number:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="tel" onBlur={(e)=>handle(e)} id="contact_no" name="contact_no" required/><br/>
 
@@ -105,39 +105,39 @@ function submit(e){
       </div>
 
       <div className="form-group row">
-                 <label htmlFor="password" className='col-sm-2 col-form-label  rounded h-25'>password:</label>
+                 <label htmlFor="password" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2  h-25'>password:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="password" onBlur={(e)=>handle(e)} id="password" name="password" required/><br/>
                   </div>
       </div>
 
       <div className="form-group row">
-                  <label htmlFor="confirmpassword" className='col-sm-2 col-form-label   rounded h-25'>Confirm password:</label>
+                  <label htmlFor="confirmpassword" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2   h-25'>Confirm password:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="password" onBlur={(e)=>passMatch(e)} id="confirmpassword" name="confirmpassword" required/><br/>
                   </div>
       </div>   
       <div className="form-group row">
-                  <label htmlFor="date_of_registration" className='col-sm-2 col-form-label rounded h-25'>Registration Date:</label>
+                  <label htmlFor="date_of_registration" className='col-sm-2 col-form-label fw-bold  text-end text-light rounded-2 h-25'>Registration Date:</label>
                   <div className="col-sm-10">
-                  <input className='form-control'type="date" onBlur={(e)=>passMatch(e)} id="date_of_registration" name="date_of_registration"  required/><br/>
+                  <input className='form-control 'type="date" onBlur={(e)=>passMatch(e)} id="date_of_registration" name="date_of_registration"  required/><br/>
                   </div>
       </div>   
       <div className=" form-group row">
-          <label className="col-form-label  col-sm-2 ">Role</label>
-              <div className="col-sm-10" onChange={(e)=>onchangevlaue(e)}>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="userRole" id="gridRadios1" value="TURF_OWNER" defaultChecked />
-                        <label className="form-check-label" htmlFor="gridRadios1">Turf Owner</label>
+          <label className="col-form-label fw-bold  text-end text-light rounded-2 col-sm-2  ">Role</label>
+              <div className="col-sm-10 row" onChange={(e)=>onchangevlaue(e)}>
+                    <div className="form-check col mx-auto ps-5">
+                        <input className="form-check-input " type="radio" name="userRole" id="gridRadios1" value="TURF_OWNER" defaultChecked />
+                        <label className="form-check-label bg-light rounded px-2" htmlFor="gridRadios1">Turf Owner</label>
                     </div>
-                    <div className="form-check">
+                    <div className="form-check col mx-auto ps-5">
                         <input className="form-check-input" type="radio" name="userRole" id="gridRadios2" value="USER" />
-                        <label className="form-check-label" htmlFor="gridRadios2">Players</label>
+                        <label className="form-check-label bg-light rounded px-2" htmlFor="gridRadios2">Players</label>
                     </div>
               </div>
       </div>
         {/* <button className='clsbutton'>Register</button> */}
-        <input className='clsbutton' type="submit" value="Register" />
+        <div className='row w-25 mx-auto'><input className='btn btn-primary btn-lg mb-3 col-sm-5 mx-auto' type="submit" value="Register" /></div>
       </form>
     </div>
   )

@@ -1,14 +1,15 @@
  .userform {
+    /* 255, 255, 255, 0.259 */
     display: flex ;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
-    background-color:rgba(255, 255, 255, 0.259);
+    background-color:rgba(143, 188, 153, 0.416);
     width: 60%;
-    border-top-right-radius: 25%;
-    border-top-left-radius: 25%;
-    border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
     border-style: double;
     border-color: rgb(108, 9, 201);
    
@@ -22,8 +23,8 @@
     align-items: normal;
     margin-inline-end: auto;
     
-    margin-top: 50px;
-    background-color:rgba(255, 255, 255, 0.259);
+    margin-top: 15px;
+    background-color:rgba(143, 188, 153, 0.416);
     border-top-right-radius: 5%;
     border-top-left-radius: 5%;
     border-bottom-left-radius: 5%;

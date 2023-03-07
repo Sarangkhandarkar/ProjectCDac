@@ -1,8 +1,9 @@
 import React from 'react'
-import i1 from '../../images/image1.jpg'
-
+import Corousel from './corousel'
 export default function Homepage() {
   return (
+    <>
+    <Corousel/>
     <div>
       {/* <div className="card w-25">
         <img className="card-img-top" src={i1} alt="Card cap"/>
@@ -39,5 +40,6 @@ export default function Homepage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
