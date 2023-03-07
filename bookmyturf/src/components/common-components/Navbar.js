@@ -49,7 +49,7 @@ export default function Navbar() {
       </ul>
         <input className="form-control" type="search" onChange={(e)=>{setSearchterm(e.target.value);console.log(serchterm)}} placeholder="Search" aria-label="Search"/>
         
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <button className="btn btn-outline-success" type="submit" >Search</button>
       </form>
     </div>
   </div>
