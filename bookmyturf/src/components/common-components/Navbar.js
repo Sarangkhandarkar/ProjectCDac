@@ -39,7 +39,9 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/addturf">Addturf</a>
-          
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/addsport">AddSports</a>
         </li>
       </ul>
       <form className="d-flex col-5 form-inline" role="search" onSubmit={(e) => submit(e)}>

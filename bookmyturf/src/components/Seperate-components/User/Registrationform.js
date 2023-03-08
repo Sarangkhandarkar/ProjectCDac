@@ -23,7 +23,7 @@ function Registrationform() {
     password: "string",
     email: "string",
     role: "USER",
-    date_of_registration: "2023-03-06",
+    date_of_registration: "",
     location:"string",
     
   })
@@ -39,9 +39,10 @@ function handle(e){
 }
 
 function passMatch(e){
+  data['date_of_registration']= new Date().toJSON().slice(0, 10);
   if(data.password === e.target.value){
     let obj = {...data};
-    obj['password']=md5(e.target.value);
+    obj['password']=(e.target.value);
     setData(obj);
   }else{
     e.target.setCustomValidity("password should match");
@@ -65,7 +66,7 @@ function passMatch(e){
 function submit(e){
   e.preventDefault();
   httpService.registeruser(data).then(res => console.log(res.data));
-  data['date_of_registration']=new Date().toLocaleDateString();
+  //data['date_of_registration']=new Date().toLocaleDateString();
 }
   return (
     <div className='registerform pe-5'  >
@@ -117,12 +118,12 @@ function submit(e){
                   <input className='form-control'type="password" onBlur={(e)=>passMatch(e)} id="confirmpassword" name="confirmpassword" required/><br/>
                   </div>
       </div>   
-      <div className="form-group row">
+      {/* <div className="form-group row">
                   <label htmlFor="date_of_registration" className='col-sm-2 col-form-label fw-bold  text-end text-light rounded-2 h-25'>Registration Date:</label>
                   <div className="col-sm-10">
-                  <input className='form-control 'type="date" onBlur={(e)=>passMatch(e)} id="date_of_registration" name="date_of_registration"  required/><br/>
+                  <input className='form-control 'type="date" onBlur={(e)=>handle(e)} id="date_of_registration" name="date_of_registration"  required/><br/>
                   </div>
-      </div>   
+      </div>    */}
       <div className=" form-group row">
           <label className="col-form-label fw-bold  text-end text-light rounded-2 col-sm-2  ">Role</label>
               <div className="col-sm-10 row" onChange={(e)=>onchangevlaue(e)}>

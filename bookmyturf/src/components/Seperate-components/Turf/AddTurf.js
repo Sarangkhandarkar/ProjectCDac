@@ -21,8 +21,8 @@ export default function AddTurf() {
     address : "",
     city : "",
     image : "",
-    ownerid : {id : ""},
-    sports :[]
+    user : {id : "1"},
+    // sports :[]
   });
   function handleChange(e){
     let newdata = {...data}
@@ -34,25 +34,25 @@ export default function AddTurf() {
     httpService.addturf(data).then((resp)=>console.log(resp.data))
   }
 
-  function handlesport(e){
-    let newsport={...sport}
-    newsport[e.target.id]=e.target.value;
-    newsport['sport_name']=document.getElementById(newsport['sportid']).innerText;
-    setSport(newsport)
-  }
+  // function handlesport(e){
+  //   let newsport={...sport}
+  //   newsport[e.target.id]=e.target.value;
+  //   newsport['sport_name']=document.getElementById(newsport['sportid']).innerText;
+  //   setSport(newsport)
+  // }
 
-  function addsportsjson(e){
-    e.preventDefault();
-    let newdata = {...data}
-    if(!(newdata.sports.includes(sport))){
-      newdata.sports.push(sport);
-      alert("Sports of "+sport.sport_name+"was added successfully")
-    }else{
-      console.log("sports not pushed duplicate")
-      alert("sports not pushed duplicate");
-    }
+  // function addsportsjson(e){
+  //   e.preventDefault();
+  //   let newdata = {...data}
+  //   if(!(newdata.sports.includes(sport))){
+  //     newdata.sports.push(sport);
+  //     alert("Sports of "+sport.sport_name+"was added successfully")
+  //   }else{
+  //     console.log("sports not pushed duplicate")
+  //     alert("sports not pushed duplicate");
+  //   }
     
-  }
+  // }
 
   return (
     <div className="text-danger rounded-4 mt-5 pe-5 text-center fw-bold text-light">
@@ -113,12 +113,8 @@ export default function AddTurf() {
         </div>
         </div>
         {/* check boxes */}
-      <div className="row">
+      {/* <div className="row">
         <div className="col"><label htmlFor="image" className='col-sm-5 text-nowrap col-form-label' >Select Sports</label></div>
-        {/* <div className="col">
-              <input type='checkbox' className='form-check-input' id='checkbox1'></input>
-              <label htmlFor="checkbox1" className="form-check-label">. Cricket</label>
-        </div> */}
         <div className="col">
         <select className='rounded w-100 p-1' id='sportid' onChange={(e)=>{setSportid(e.target.value);handlesport(e)}} required>
             <option value="0" id="0">Sport Name</option>
@@ -149,10 +145,9 @@ export default function AddTurf() {
             <option value="10">07:00pm - 08:00pm</option>
             <option value="11">08:00pm - 09:00pm</option>
           </select>
-            {/* <input type='text' placeholder="Time slot"></input>   */}
         </div>
         <button className="col col-sm-1 rounded-3 text-light bg-primary " onClick={(e)=>addsportsjson(e)}>Add</button>
-      </div>
+      </div> */}
 
         <div>
             <button onClick={(e)=>submit(e)}  className='btn btn-primary' value="Addturf">Save Or Update</button>
