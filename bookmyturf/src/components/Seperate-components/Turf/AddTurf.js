@@ -15,7 +15,6 @@ export default function AddTurf() {
   const [spname,setSpname] = useState("");
   const [maxplay,setMaxplay] = useState("");
   const [rate,setRate] = useState("");
-  // console.log(spid,spname);
   const [data,setData] = useState({
     turf_id : "",
     name : "",
@@ -41,35 +40,18 @@ export default function AddTurf() {
     newsport['sport_name']=document.getElementById(newsport['sportid']).innerText;
     setSport(newsport)
   }
-  // function addsportsjson(){
-  //   let newsport= {...sport}
-  //   newsport['sportid']=document.getElementById('sportid').value;
-  //   newsport['sport_name']=document.getElementById('sportid').innerText
-  //   newsport['no_of_players']=document.getElementById('no_of_players').value;
-  //   newsport['max_players']=document.getElementById('max_players').value;
-  //   setSport(newsport)
-  //   console.log(sport)
-  //   let newdata = {...data};
-  //   newdata.sports.push(sport);
-  //   console.log(data)
-  // }
+
   function addsportsjson(e){
     e.preventDefault();
     let newdata = {...data}
-    newdata.sports.push(sport);
-
-  //   let what={...sport};
-  //   what['sportid']=spid;
-  //   what['sport_name']=document.getElementById(spid).innerText;
-  //   what['rate_per_hour']=rate;
-  //   what['max_players']=maxplay;
-  //   // console.log(what)
-  //   setSport(what)
-  //   // setSport(newsport);
-  //   // newsport['max_players']=document.getElementById('max_players').value;
+    if(!(newdata.sports.includes(sport))){
+      newdata.sports.push(sport);
+      alert("Sports of "+sport.sport_name+"was added successfully")
+    }else{
+      console.log("sports not pushed duplicate")
+      alert("sports not pushed duplicate");
+    }
     
-  // //   newsport['no_of_players']=document.getElementById('no_of_players').value;
-  // //   newsport['max_players']=document.getElementById('max_players').value;
   }
 
   return (
@@ -171,24 +153,7 @@ export default function AddTurf() {
         </div>
         <button className="col col-sm-1 rounded-3 text-light bg-primary " onClick={(e)=>addsportsjson(e)}>Add</button>
       </div>
-      
 
-
-
-
-
-        {/* <div className="mb-3 row ">
-                <label htmlFor="image" className='col-sm-2 col-form-label' >Select Sports</label>
-          <div className="col-sm-10 col">
-              <input type='checkbox' className='form-check-input' id='checkbox1'></input>
-              <label htmlFor="checkbox1" className="form-check-label">. Cricket</label>
-          </div>  
-              <div className="input-group-sm">
-                <input type='text' placeholder="Rate"></input>
-          </div>
-        </div> */}
-        
-        {/* <label htmlFor="cheackbox" className='col-sm-2 col-form-label'>Select Sports</label> */}
         <div>
             <button onClick={(e)=>submit(e)}  className='btn btn-primary' value="Addturf">Save Or Update</button>
         </div>
