@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react'
 import './Form.css';
 import {logincontext} from '../../Contexts/Logincontext'
 import httpService from '../../http-service/http-service'
+import { useNavigate } from 'react-router-dom';
 
 export default function Loginform() {
+const navigate = useNavigate();
 const data = useContext(logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
@@ -20,6 +22,7 @@ const data = useContext(logincontext);
 		e.preventDefault();
 		console.log(data);
 		httpService.authenticateUser(loginDetails).then(res => console.log(res.data));
+		navigate('/user');
 	  }
   return (
     <div >

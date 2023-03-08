@@ -7,6 +7,7 @@ import AddTurf from './components/Seperate-components/Turf/AddTurf';
 import Homepage from './components/common-components/Homepage'
 import { logincontext } from './components/Contexts/Logincontext';
 import AddSport from './components/Seperate-components/Sport/AddSport';
+import Turf from './components/Seperate-components/Dashboard/Turf Cards'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
     <div className="container" >
     <logincontext.Provider value={logincontext}>
       <Routes>
+        <Route path='/user' element={<Turf/>} />
         <Route path="/userLogin" element={<Loginform/>} />
         <Route path="/registeruser" element={<Registrationform/>} />
         <Route path="/addturf" element={<AddTurf/>} />
