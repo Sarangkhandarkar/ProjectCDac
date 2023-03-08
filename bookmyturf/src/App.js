@@ -6,6 +6,7 @@ import Registrationform from './components/Seperate-components/User/Registration
 import AddTurf from './components/Seperate-components/Turf/AddTurf';
 import Homepage from './components/common-components/Homepage'
 import { logincontext } from './components/Contexts/Logincontext';
+import AddSport from './components/Seperate-components/Sport/AddSport';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/registeruser" element={<Registrationform/>} />
         <Route path="/addturf" element={<AddTurf/>} />
         <Route path="/" element={<Homepage/>} />
+        <Route path='/addsport' element={<AddSport/>}/>
       </Routes>
       </logincontext.Provider>
     </div>
