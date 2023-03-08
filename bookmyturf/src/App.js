@@ -9,6 +9,7 @@ import { logincontext } from './components/Contexts/Logincontext';
 import AddSport from './components/Seperate-components/Sport/AddSport';
 import Turf from './components/Seperate-components/Dashboard/Turf Cards'
 
+import Footer from './components/common-components/Footer';
 function App() {
   return (
     <BrowserRouter>
@@ -23,9 +24,11 @@ function App() {
         <Route path="/addturf" element={<AddTurf/>} />
         <Route path="/" element={<Homepage/>} />
         <Route path='/addsport' element={<AddSport/>}/>
+       
       </Routes>
       </logincontext.Provider>
     </div>
+    <Footer/>
     </BrowserRouter>
   );
 }
