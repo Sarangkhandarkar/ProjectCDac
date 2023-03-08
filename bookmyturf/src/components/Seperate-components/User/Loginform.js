@@ -7,7 +7,7 @@ export default function Loginform() {
 const data = useContext(logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
-		username:"",
+		email:"",
 		password:""
 	});
 
@@ -27,7 +27,7 @@ const data = useContext(logincontext);
       <form className="userform p-4" action="/login" method="post">
 		<h2>Login Form</h2>
 		<label className='text-light' for="username"><b>Username</b></label>
-		<input className='clsinput' type="text" placeholder="Enter Username" name="username" required onBlur={(e)=>handlechange(e)}/>
+		<input className='clsinput' type="text" placeholder="Enter Username" name="email" required onBlur={(e)=>handlechange(e)}/>
 		<label  className='text-light'for="password"><b>Password</b></label>
 		<input className='clsinput' type="password" placeholder="Enter Password" name="password" required onBlur={(e)=>handlechange(e)}/>
 		<button className="btn btn-primary btn-lg" type="submit" onClick={(e)=>submit(e)}>Login</button>

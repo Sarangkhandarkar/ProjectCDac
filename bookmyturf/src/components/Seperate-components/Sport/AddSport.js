@@ -6,10 +6,13 @@ import httpService from "../../http-service/http-service";
 export default function AddSport() {
     const [data,setData] = useState({
       sport_id : "",
-      sport_name : "",
+      sportsName : "",
       max_player: "",
       price_per_hour : "",
-      
+      tufDetails: {
+        turf_id: 1
+      },
+      timeSlots:[{time_id: "1"}]
     });
   
     function handle(e){
@@ -19,7 +22,7 @@ export default function AddSport() {
     }
     function submit(e){
         e.preventDefault();
-        httpService.addSport(data)
+        httpService.addSport(data).then(resp=>console.log(resp.data))
       }
       return (
         <div>
@@ -39,12 +42,12 @@ export default function AddSport() {
         </div>
   
            <div className="  mb-3 row ">
-           <label htmlFor="sport_name" className='col-sm-2 col-form-label' >Sport Name:</label>
+           <label htmlFor="sportsName" className='col-sm-2 col-form-label' >Sport Name:</label>
            <div className="col-sm-10">
             <input
               type='text'
               className='form-control'
-              id='sport_name'
+              id='sportsName'
               onChange={(e)=>handle(e)}
               placeholder='Enter Sport Name'
             />

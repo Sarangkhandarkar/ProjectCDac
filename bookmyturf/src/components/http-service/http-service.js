@@ -16,10 +16,12 @@ const bookingRequest = (data) => httpClient.post('',data);
 
 const deleteBooking = (bookingid) => httpClient.get(`/cancel/${bookingid}`);
 
-const authenticateUser =(credentials) => httpClient.post('/users/authenticate/turfOwner',credentials);
+const authenticateUser =(credentials) => httpClient.post('/users/authenticate',credentials);
 
 //const authenticateOwner =(credentials) => httpClient.post('/users/authenticate/turfOwner',credentials);
 
 const addturf =(data) => httpClient.post('/turf',data);
 
-export default {getAll,SearchBy,getByCity,getByName,registeruser,registerTurfOwner,bookingRequest,deleteBooking,authenticateUser,addturf};
+const addSport =(data) => httpClient.post('/sports/add',data);
+
+export default {getAll,SearchBy,getByCity,getByName,registeruser,registerTurfOwner,bookingRequest,deleteBooking,authenticateUser,addturf,addSport};
