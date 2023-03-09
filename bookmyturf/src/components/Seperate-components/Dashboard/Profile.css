@@ -1,0 +1,50 @@
+
+.userform {
+    /* 255, 255, 255, 0.259 */
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    background-color:rgba(143, 188, 153, 0.416);
+    width: 60%;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-style: double;
+    border-color: rgb(108, 9, 201);
+   
+    
+    
+} 
+.button1{
+    width: 100px;
+    height: 40px;
+    margin-top: 2%;
+    margin-left: auto;
+    background-color:rgb(22, 98, 238);
+    color: rgb(189, 184, 184);
+    border: none;
+    cursor: pointer;
+
+}
+.button1:hover{
+    opacity: 0.8;
+    
+}
+
+.button2{
+    width: 120px;
+    height: 40px;
+    margin-top: 2%;
+    margin-left: 150px;
+    background-color:rgb(22, 98, 238);
+
+    color: rgb(189, 184, 184);
+    border: none;
+    cursor: pointer;
+
+}
+.button2:hover{
+    opacity:0.8;
+}

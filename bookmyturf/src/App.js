@@ -8,6 +8,8 @@ import Homepage from './components/common-components/Homepage'
 import { logincontext } from './components/Contexts/Logincontext';
 import AddSport from './components/Seperate-components/Sport/AddSport';
 import Footer from './components/common-components/Footer';
+import OwnerProfile from './components/Seperate-components/Dashboard/OwnerProfile';
+import UserProfile from './components/Seperate-components/Dashboard/UserProfile';
 function App() {
   return (
     <BrowserRouter>
@@ -21,7 +23,10 @@ function App() {
         <Route path="/addturf" element={<AddTurf/>} />
         <Route path="/" element={<Homepage/>} />
         <Route path='/addsport' element={<AddSport/>}/>
-       
+        <Route path='/OwnerProfile' element={<OwnerProfile/>}/>
+        <Route path='/UserProfile' element={<UserProfile/>}/>
+
+
       </Routes>
       </logincontext.Provider>
     </div>
