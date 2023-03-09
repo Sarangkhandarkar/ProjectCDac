@@ -14,16 +14,13 @@ import OwnerProfile from './components/Seperate-components/Dashboard/OwnerProfil
 import UserProfile from './components/Seperate-components/Dashboard/UserProfile';
 import { useState } from 'react';
 function App() {
-  const [data,setData]=useState({
-    name: "Sarang",
-    job: "Developer"
-  })
+  const [userdetails,setUserdetails]=useState({})
   return (
     <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
     <div className="container" >
-    <Logincontext.Provider value={ {data , setData} }>
+    <Logincontext.Provider value={ {userdetails , setUserdetails} }>
       <Routes>
         <Route path='/user' element={<Turf/>} />
         

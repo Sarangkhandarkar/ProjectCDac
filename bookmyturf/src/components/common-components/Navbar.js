@@ -10,7 +10,7 @@ export default function Navbar() {
     e.preventDefault();
     setSerchtype(document.getElementById('searchtype').value);
     console.log(serchterm);
-    httpService.SearchBy(serchtype,serchterm);
+    httpService.SearchBy(serchtype,serchterm).catch((ERROR)=>{console.log(ERROR.body);alert(ERROR.body)});
   
   }
   return (

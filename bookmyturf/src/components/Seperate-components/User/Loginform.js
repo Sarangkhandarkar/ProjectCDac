@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Loginform() {
 const navigate = useNavigate();
+
 const [userrole,setUserrole] =useState({
 	userRole: ""
 });
-const {data, setData} = useContext(Logincontext);
+const {userdetails,setUserdetails} = useContext(Logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
 		email:"",
@@ -29,11 +30,11 @@ const {data, setData} = useContext(Logincontext);
 	}
 	function submit(e){
 		e.preventDefault();
-		console.log(data);
 		if (userrole.userRole==='TURF_OWNER'){
-			httpService.authenticateOwner(loginDetails).then(res => {console.log(res.data);setData(res);});
+			httpService.authenticateOwner(loginDetails).then(res => {console.log(res.data);setUserdetails(res.data);});
 		}else{
-			httpService.authenticateUser(loginDetails).then(res => {console.log(res.data);setData(res);});
+			httpService.authenticateUser(loginDetails).then(res => {console.log(res.data);setUserdetails(res.data);});
+			navigate('/UserProfile')
 		}
 		console.log(userrole.userRole)	
 	  }
@@ -59,7 +60,7 @@ const {data, setData} = useContext(Logincontext);
 		<button className="btn btn-primary btn-lg" type="submit" onClick={(e)=>submit(e)}>Login</button>
 		<div className='text-light mt-2 row'>
 			<p className='text-danger w-25 text-nowrap col'>Don't have an account?</p>
-			<a className='col mx-2' href="/registeruser">Register</a>
+			<a className='col mx-2 text-danger fw-bold' href="/registeruser">Register</a>
 		</div>
 
 		
