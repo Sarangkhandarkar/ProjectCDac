@@ -1,15 +1,6 @@
 .footer{
     background: #000000;
-    width:1512px;
-<<<<<<< HEAD
+    width:1712px;
     position:relative ;
     margin-top: 100px;
-=======
-}
-.bg{
-    background-image: url(/public/bg1.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
->>>>>>> 482a6e6cafbded94ed38b5a2db0782c053ac6b07
 }
