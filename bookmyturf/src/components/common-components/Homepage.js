@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { Logincontext } from '../Contexts/Logincontext'
 
 import '../Seperate-components/Dashboard/Card.css'
+import './Footer.css'
 
 
 
 export default function Homepage() {
+const { data , setData } =useContext(Logincontext);
+
+  const init = () => {
+  console.log(data)
+  // setData({
+  //   name: 'Vaibhav',
+  //   job: 'developer'
+  // })
+ }
+
+useEffect(()=>{ init();})
   return (
     <>
+    <div className='bg'>
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" carousel-transition-duration="0.05">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -126,7 +140,7 @@ export default function Homepage() {
 
 </div>
 </div>
-
+</div>
     </>
   )
 }

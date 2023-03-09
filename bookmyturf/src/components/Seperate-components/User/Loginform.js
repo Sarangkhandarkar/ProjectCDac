@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import './Form.css';
-import {logincontext} from '../../Contexts/Logincontext'
+import {Logincontext} from '../../Contexts/Logincontext'
 import httpService from '../../http-service/http-service'
 import { useNavigate } from 'react-router-dom';
 
 export default function Loginform() {
 const navigate = useNavigate();
-const data = useContext(logincontext);
+const {data, setData} = useContext(Logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
 		email:"",
@@ -21,8 +21,9 @@ const data = useContext(logincontext);
 	function submit(e){
 		e.preventDefault();
 		console.log(data);
-		httpService.authenticateUser(loginDetails).then(res => console.log(res.data));
-		navigate('/user');
+		httpService.authenticateUser(loginDetails).then(res => {console.log(res.data);setData(res);});
+		
+				
 	  }
   return (
     <div >

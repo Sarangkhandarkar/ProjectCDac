@@ -1,6 +1,6 @@
 import { createContext } from "react"
 
-export const logincontext = createContext({
+export const Logincontext = createContext({
     "nameofturf": "Test Turf",
     "address":"turf address",
     "city": "turf city",
