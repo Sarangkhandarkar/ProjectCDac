@@ -5,19 +5,31 @@ import Loginform from './components/Seperate-components/User/Loginform';
 import Registrationform from './components/Seperate-components/User/Registrationform';
 import AddTurf from './components/Seperate-components/Turf/AddTurf';
 import Homepage from './components/common-components/Homepage'
-import { logincontext } from './components/Contexts/Logincontext';
+import { Logincontext } from './components/Contexts/Logincontext';
 import AddSport from './components/Seperate-components/Sport/AddSport';
+import Turf from './components/Seperate-components/Dashboard/Turf Cards'
+
 import Footer from './components/common-components/Footer';
+<<<<<<< HEAD
 import OwnerProfile from './components/Seperate-components/Dashboard/OwnerProfile';
 import UserProfile from './components/Seperate-components/Dashboard/UserProfile';
+=======
+import { useState } from 'react';
+>>>>>>> 482a6e6cafbded94ed38b5a2db0782c053ac6b07
 function App() {
+  const [data,setData]=useState({
+    name: "Sarang",
+    job: "Developer"
+  })
   return (
     <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
     <div className="container" >
-    <logincontext.Provider value={logincontext}>
+    <Logincontext.Provider value={ {data , setData} }>
       <Routes>
+        <Route path='/user' element={<Turf/>} />
+        
         <Route path="/userLogin" element={<Loginform/>} />
         <Route path="/registeruser" element={<Registrationform/>} />
         <Route path="/addturf" element={<AddTurf/>} />
@@ -28,9 +40,9 @@ function App() {
 
 
       </Routes>
-      </logincontext.Provider>
+      </Logincontext.Provider>
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </BrowserRouter>
   );
 }

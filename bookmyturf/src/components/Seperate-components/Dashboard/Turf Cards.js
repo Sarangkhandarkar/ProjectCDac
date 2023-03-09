@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import Corousel from './corousel'
+import React, { useContext, useState } from 'react'
+import { Logincontext } from '../../Contexts/Logincontext'
 import './Card.css'
-export default function Homepage() {
-  const [sampledata,setSampledata] = useState({
+export default function Turf() {
+
+const [sampledata,setSampledata] = useState({
     name: 'Turf Name',
     address:"Turf Address",
     city:"City",
-    contactNo:"Contact",
-
-
+    contactNo:"Contact"
   })
   return (
     <div>
@@ -29,5 +28,5 @@ export default function Homepage() {
   </div>
 </div>
 </div>
-  )
+)
 }
