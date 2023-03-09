@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Logincontext } from '../../Contexts/Logincontext'
 import './Card.css'
 export default function Turf() {
-
+const {userdetails} = useContext(Logincontext)
 const [sampledata,setSampledata] = useState({
     name: 'Turf Name',
     address:"Turf Address",
@@ -10,6 +10,7 @@ const [sampledata,setSampledata] = useState({
     contactNo:"Contact"
   })
   return (
+
     <div>
     <div className="card mb-3" id='container' >
   <div className="row g-0">
