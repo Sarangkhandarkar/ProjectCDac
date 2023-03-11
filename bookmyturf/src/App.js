@@ -10,12 +10,9 @@ import AddSport from './components/Seperate-components/Sport/AddSport';
 import Turf from './components/Seperate-components/Dashboard/Turf Cards'
 
 import Footer from './components/common-components/Footer';
-<<<<<<< HEAD
+import { useState } from 'react';
 import OwnerProfile from './components/Seperate-components/Dashboard/OwnerProfile';
 import UserProfile from './components/Seperate-components/Dashboard/UserProfile';
-=======
-import { useState } from 'react';
->>>>>>> 482a6e6cafbded94ed38b5a2db0782c053ac6b07
 function App() {
   const [data,setData]=useState({
     name: "Sarang",
