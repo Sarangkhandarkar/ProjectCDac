@@ -64,12 +64,7 @@ public class TurfDetailsImpl implements TurfService {
 	}
 
 	@Override
-	public TurfDetails getByOwnerId(Long user_id) {
-		
-		//User user = userRepository.findByEmailAndPassword(user.getEmail(),user.getPassword());
-		
+	public TurfDetails getByOwnerId(Long user_id) {				
 		return turfRepo.findByUser_Id(user_id);
 	}
-	
-
 }

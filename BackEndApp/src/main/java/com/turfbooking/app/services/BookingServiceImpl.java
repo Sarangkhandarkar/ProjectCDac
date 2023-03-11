@@ -1,5 +1,7 @@
 package com.turfbooking.app.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +73,12 @@ public class BookingServiceImpl implements IBookingService {
 		}
 
 		return bookingRepo.save(booking);
+	}
+
+	@Override
+	public List<BookingDetails> getBookings(Long usr_id) {
+		bookin
+		return null;
 	}
 
 }

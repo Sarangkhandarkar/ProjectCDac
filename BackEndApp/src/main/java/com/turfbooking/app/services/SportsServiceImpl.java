@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.turfbooking.app.bean.SportsDetails;
+import com.turfbooking.app.bean.TimeSlots;
 import com.turfbooking.app.bean.TurfDetails;
 import com.turfbooking.app.customexception.ResourceNotFoundException;
 import com.turfbooking.app.repositories.SportsRepository;
+import com.turfbooking.app.repositories.TimeSlotRepository;
 import com.turfbooking.app.repositories.TurfRepository;
 
 @Service
@@ -22,9 +24,10 @@ public class SportsServiceImpl implements ISportsService {
 	private SportsRepository sportsRepo;
 	@Autowired
 	private TurfRepository turfRepo;
-
 	@Autowired
-	TurfRepository turfRepository;
+	private TurfRepository turfRepository;
+	@Autowired
+	private TimeSlotRepository timeRepo;
 
 	@Override
 	public SportsDetails addSport(SportsDetails sports) {
@@ -67,6 +70,11 @@ public class SportsServiceImpl implements ISportsService {
 	public List<SportsDetails> getSportsByTurfId(Long turf_id) {
 		TurfDetails turf = turfRepo.findById(turf_id).get();
 		return sportsRepo.findSportsByTurfDetails(turf);
+	}
+
+	@Override
+	public TimeSlots getTimeSlot(Long time_id) {
+		return timeRepo.findById(time_id).get();
 	}
 
 }
