@@ -10,5 +10,4 @@ import com.turfbooking.app.bean.User;
 public interface BookingRepository extends JpaRepository<BookingDetails, Long> {
 
 	List<BookingDetails> findBookingsByUserId(User id);
-
 }
