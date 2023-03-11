@@ -1,107 +1,108 @@
 import React from "react"
 import './Footer.css'
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
 
-export default function Footer() {
-  return (
-    <footer className=" footer " >
-    <div className="bg-dark  ">
-    <div className="row">
-      <div className="col-md-4 footer-column">
-        <ul className="nav flex-column">
-          <li className="nav-item">
-            <span className="footer-title">Product</span>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Product 1</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Product 2</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Plans & Prices</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Frequently asked questions</a>
-          </li>
-        </ul>
-      </div>
-      <div className="col-md-4 footer-column">
-        <ul className="nav flex-column">
-          <li className="nav-item">
-            <span className="footer-title">Company</span>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">About us</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Job postings</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">News and articles</a>
-          </li>
-        </ul>
-      </div>
-      <div className="col-md-4 footer-column">
-        <ul className="nav flex-column">
-          <li className="nav-item">
-            <span className="footer-title">Contact & Support</span>
-          </li>
-          <li className="nav-item">
-            <span className="nav-link"><i className="fas fa-phone"></i>+47 45 80 80 80</span>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#"><i className="fas fa-comments"></i>Live chat</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#"><i className="fas fa-envelope"></i>Contact us</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#"><i className="fas fa-star"></i>Give feedback</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+// export default function Footer() {
+//   return (
+//     <footer className>
+//     <div className="bg-dark  ">
+//     <div className="row">
+//       <div className="col-md-4 footer-column">
+//         <ul className="nav flex-column">
+//           <li className="nav-item">
+//             <span className="footer-title">Product</span>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">Product 1</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">Product 2</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">Plans & Prices</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">Frequently asked questions</a>
+//           </li>
+//         </ul>
+//       </div>
+//       <div className="col-md-4 footer-column">
+//         <ul className="nav flex-column">
+//           <li className="nav-item">
+//             <span className="footer-title">Company</span>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">About us</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">Job postings</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#">News and articles</a>
+//           </li>
+//         </ul>
+//       </div>
+//       <div className="col-md-4 footer-column">
+//         <ul className="nav flex-column">
+//           <li className="nav-item">
+//             <span className="footer-title">Contact & Support</span>
+//           </li>
+//           <li className="nav-item">
+//             <span className="nav-link"><i className="fas fa-phone"></i>+47 45 80 80 80</span>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#"><i className="fas fa-comments"></i>Live chat</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#"><i className="fas fa-envelope"></i>Contact us</a>
+//           </li>
+//           <li className="nav-item">
+//             <a className="nav-link" href="#"><i className="fas fa-star"></i>Give feedback</a>
+//           </li>
+//         </ul>
+//       </div>
+//     </div>
 
-    <div className="text-center"><i className="fas fa-ellipsis-h"></i></div>
+//     <div className="text-center"><i className="fas fa-ellipsis-h"></i></div>
     
-    <div className="row text-center">
-      <div className="col-md-4 box">
-        <span className="copyright quick-links">Copyright &copy; Your Website <script>document.write(new Date().getFullYear())</script>
-        </span>
-      </div>
-      <div className="col-md-4 box">
-        <ul className="list-inline social-buttons">
-          <li className="list-inline-item">
-            <a href="#">
-            <i className="fab fa-twitter"></i>
-          </a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-          </li>
-        </ul>
-      </div>
-      <div className="col-md-4 box">
-        <ul className="list-inline quick-links">
-          <li className="list-inline-item">
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li className="list-inline-item">
-            <a href="#">Terms of Use</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  </footer>
+//     <div className="row text-center">
+//       <div className="col-md-4 box">
+//         <span className="copyright quick-links">Copyright &copy; Your Website <script>document.write(new Date().getFullYear())</script>
+//         </span>
+//       </div>
+//       <div className="col-md-4 box">
+//         <ul className="list-inline social-buttons">
+//           <li className="list-inline-item">
+//             <a href="#">
+//             <i className="fab fa-twitter"></i>
+//           </a>
+//           </li>
+//           <li className="list-inline-item">
+//             <a href="#">
+//             <i className="fab fa-facebook-f"></i>
+//           </a>
+//           </li>
+//           <li className="list-inline-item">
+//             <a href="#">
+//             <i className="fab fa-linkedin-in"></i>
+//           </a>
+//           </li>
+//         </ul>
+//       </div>
+//       <div className="col-md-4 box">
+//         <ul className="list-inline quick-links">
+//           <li className="list-inline-item">
+//             <a href="#">Privacy Policy</a>
+//           </li>
+//           <li className="list-inline-item">
+//             <a href="#">Terms of Use</a>
+//           </li>
+//         </ul>
+//       </div>
+//     </div>
+//   </div>
+//   </footer>
 
 
 // {/* <div class="bg-dark text-center text-lg-start text-white">
@@ -195,7 +196,122 @@ export default function Footer() {
 
 
 // </div> */}
-  )
+
+export default function App() {
+  return (
+    <MDBFooter bgColor='dark ' className='text-center text-lg-start text-muted mt-5 '>
+      {/* <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom text-light'>
+        <div className='me-5 d-none d-lg-block'>
+          <span>Get connected with us on social networks:</span>
+        </div>
+
+        <div>
+          <a href='' className='me-4 text-reset'>
+            <MDBIcon fab icon="facebook-f" />
+          </a>
+          <a href='' className='me-4 text-reset'>
+            <MDBIcon fab icon="twitter" />
+          </a>
+          <a href='' className='me-4 text-reset'>
+            <MDBIcon fab icon="google" />
+          </a>
+          <a href='' className='me-4 text-reset'>
+            <MDBIcon fab icon="instagram" />
+          </a>
+          <a href='' className='me-4 text-reset'>
+            <MDBIcon fab icon="linkedin" />
+          </a>
+          <a href='' className='me-4 text-reset'>
+            <MDBIcon fab icon="github" />
+          </a>
+        </div>
+      </section> */}
+
+      <section className='container'>
+        <MDBContainer className=' text-center text-md-start mt-5 text-light'>
+          <MDBRow className=''>
+            <MDBCol md="12" lg="4" xl="3" className='mx-auto  mt-4 '>
+              <h6 className='footer text-uppercase fw-bold mb-4'>
+                <MDBIcon icon="gem" className=" Height me-3 " />
+                Book My Turf
+              </h6>
+             
+            </MDBCol>
+
+            {/* <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'></h6>
+              <p>
+                <a href='#!' className='text-reset'>
+                  Angular
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                  React
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                  Vue
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                  Laravel
+                </a>
+              </p>
+            </MDBCol> */}
+            {/* <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4 mt-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+              <p>
+                <MDBIcon icon="home" className="me-2" />
+                  
+              </p>
+              <p>
+                <MDBIcon icon="envelope" className="me-3" />
+                info@example.com
+              </p>
+              <p>
+                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
+              </p>
+              <p>
+                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
+              </p>
+            </MDBCol> */}
+
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4 mt-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
+              <p>
+                <a href='#!' className=' Height text-reset w-bold mb-4' >
+                  AboutUs
+                </a>
+              </p>
+              
+              <p>
+                <a href='#!' className='text-reset'>
+                FeedBack
+                </a>
+              </p>
+              {/* <p>
+                <a href='#!' className='text-reset'>
+                  FeedBack
+                </a>
+              </p> */}
+            </MDBCol>
+
+            
+          </MDBRow>
+        </MDBContainer>
+      </section>
+
+      <div className='text-center  text-light' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+        © 2023 Copyright 
+         : BookMyTurf
+            
+      </div>
+    </MDBFooter>
+  );
 }
+
 
 

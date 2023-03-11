@@ -39,11 +39,7 @@ export default function OwnerProfile() {
       <h4 className='mt-4 '>City : {userdetails.location}</h4>
       </div>
       <div>
-<<<<<<< HEAD
-        <button value="AddTurf" onSubmit={navigationfunction()} className='button1 rounded'>AddTurf</button>
-=======
         <button id="/addturf" onClick={(e)=>clickfunction(e)} className='button1 rounded'>AddTurf</button>
->>>>>>> 395fd50f9cb885d7e880e29b0d9a08027220546e
        
         <button  id="/bookings" onClick={(e)=>clickfunction(e)} className='button2 rounded'>ShowBookings</button>
         
