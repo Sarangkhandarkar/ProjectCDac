@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.turfbooking.app.bean.Role;
+import com.turfbooking.app.bean.TurfDetails;
 import com.turfbooking.app.bean.User;
-import com.turfbooking.app.customexception.ResourceNotFoundException;
 import com.turfbooking.app.dto.LoginRequestDto;
+import com.turfbooking.app.dto.TurfOwnerSpecificResponse;
+import com.turfbooking.app.dto.UserSpecificResponse;
+import com.turfbooking.app.repositories.TurfRepository;
 import com.turfbooking.app.repositories.UserRepository;
 
 @Service
@@ -18,6 +23,11 @@ public class UserServicesImpl implements UserServices {
 
 	@Autowired
 	private UserRepository userRepo;
+	
+	@Autowired
+	private ModelMapper mapper;
+	@Autowired
+	private TurfService turfService;
 
 	@Override
 	public User addUser(User user) {
@@ -30,27 +40,27 @@ public class UserServicesImpl implements UserServices {
 	}
 
 	@Override
-	public User findByEmailAndPassword(String email,String password) {
-		User user = userRepo.findByEmailAndPassword(email ,password);
-		return user;
-	
-	}
-
-	@Override
 	public User findById(Long id) {
-		return userRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Invalid Id !!!!"));
+		return userRepo.findById(id).get();
 	}
 
 	@Override
-	public String updateUserDetails(User user) {
+	public User updateUserDetails(User user) {
+		return userRepo.save(user);
+	}
+
+	@Override
+	public UserSpecificResponse authenticateUser(LoginRequestDto dto) {
 		
-		if(userRepo.existsById(user.getId()))
+		User user = userRepo.findByEmailAndPassword(dto.getEmail(), dto.getPassword());
+		if(user != null )
 		{
-			userRepo.save(user);
-			return "User Data Updated Successfully !!";
+			return mapper.map(user,UserSpecificResponse.class);
 		}
-		return "User Data Updation is Failed !!!!";
+		
+		 return null;
 	}
 
 	
+
 }

@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.turfbooking.app.bean.Role;
 import com.turfbooking.app.bean.User;
 import com.turfbooking.app.dto.LoginRequestDto;
-import com.turfbooking.app.services.TurfService;
 import com.turfbooking.app.services.UserServices;
 
 @RestController
@@ -51,39 +50,22 @@ public class UserController {
 		return new ResponseEntity<User>(userServices.addUser(user),HttpStatus.CREATED);
 	}
 	
-	// API to get turf_owner
-	@PostMapping("/authenticate/turfOwner")
-	public ResponseEntity<?> findTurfOwnerEmailAndPassword(@RequestParam String email,@RequestParam String password)
-	{
-		System.out.println("In Turf owner login");
-		User user = userServices.findByEmailAndPassword(email, password);
-		if(user != null && user.getRole().equals(Role.TURF_OWNER))
-		{
-			return new ResponseEntity<>(user,HttpStatus.FOUND);
-		}
-		return new ResponseEntity<>("Inavlid Credentials !!!!",HttpStatus.BAD_REQUEST);
-	}
 
-	@PostMapping("/{authenticate}")
-	public ResponseEntity<?> findUserByEmailAndPassword(@RequestParam String email,@RequestParam String password) {
-		System.out.println("In Validate user");
-		User user = userServices.findByEmailAndPassword(email,password);
-		if(user != null)
-		{
-			return new ResponseEntity<>(user,HttpStatus.FOUND);
-		}
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> validateUser(@RequestBody @Valid LoginRequestDto dto) {
 		
-		return new ResponseEntity<>("Invalid Credentials !!!!" , HttpStatus.BAD_REQUEST);
+		System.out.println("In validate User");
+		return ResponseEntity.ok(userServices.authenticateUser(dto));
+		
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getUserByid(@PathVariable Long id) {
-		System.out.println("In FindUser By id");
-		return ResponseEntity.ok(userServices.findById(id));
+	public User getUserByid(@PathVariable Long id) {
+		return userServices.findById(id);
 	}
 
-	@PutMapping("/updateuser")
-	public String updateUser( @RequestBody User user) {
+	@PutMapping("/{id}")
+	public User updateUser(@PathVariable Long id, @RequestBody User user) {
 		System.out.println("user to update" + user);
 		return userServices.updateUserDetails(user);
 	}

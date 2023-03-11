@@ -38,19 +38,27 @@ public class BookingDetails {
 	@Column(name = "booking_id")
 	private Long id;
 
-	@NotNull(message = "Please Enter Date")
-	private int time_slot;
+	//@NotNull(message = "Please Enter Date")
+	
 	//@Pattern(regexp = "^(true|false)$", message = "restartable field allowed input: true or false")
 	private boolean booking_status;
 	//@Pattern(regexp = "^(true|false)$", message = "restartable field allowed input: true or false")
 	private boolean payment_status;
+	private String time_slots;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id",nullable = true)
 	private User user_id;
+	
+	@OneToOne
+	@JoinColumn(name = "sport_id",nullable = true)
+	private SportsDetails sportId;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "turf_id")
+	@JoinColumn(name = "turf_id",nullable = true)
 	private TurfDetails turf_id;
-
+	
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "time_id")
+	private TimeSlots time_slot;
 }

@@ -1,6 +1,10 @@
 .footer{
     background: #000000;
+<<<<<<< HEAD
     width:1512px;
+=======
+    width:1712px;
+>>>>>>> 395fd50f9cb885d7e880e29b0d9a08027220546e
     position:relative ;
     margin-top: 100px;
 }

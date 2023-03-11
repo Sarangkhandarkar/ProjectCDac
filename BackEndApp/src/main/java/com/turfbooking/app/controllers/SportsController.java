@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.turfbooking.app.bean.SportsDetails;
+import com.turfbooking.app.bean.TimeSlots;
 import com.turfbooking.app.services.ISportsService;
 
 @RestController
 @RequestMapping("/sports")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SportsController {
 	
 	@Autowired
@@ -65,5 +68,14 @@ public class SportsController {
 	{
 		System.out.println("in Sports Delete");
 		return sportService.deleteSports(sport_id);
+	}
+	@GetMapping("/turf/sports/{turf_id}")
+	public List<SportsDetails> getSportsByTurfId(@PathVariable Long turf_id) {
+		return sportService.getSportsByTurfId(turf_id);
+	}
+	
+	@GetMapping("/turf/sports/time/{time_id}")
+	public TimeSlots getTimeSlot(@PathVariable Long time_id){
+		return sportService.getTimeSlot(time_id);	
 	}
 }

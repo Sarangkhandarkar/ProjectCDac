@@ -12,6 +12,7 @@ public interface TurfRepository extends JpaRepository<TurfDetails, Long> {
     
 	List<TurfDetails> findTurfByName(String key);
 	List<TurfDetails> findTurfByCity(String key);
-	TurfDetails findTurfByOwnerid(Long id);
+	//TurfDetails findByUser(Long id);
+	TurfDetails findByUser_Id(Long user_id);
 
 }

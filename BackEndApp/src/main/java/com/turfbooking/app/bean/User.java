@@ -74,7 +74,7 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	@NotNull
 	private Role role;
-	
+
 	public User(@NotNull @NotBlank(message = "Please Enter First Name") String first_name,
 			@NotNull @NotBlank(message = "Please Enter Last Name") String last_name,
 			@Pattern(regexp = "(^$|[0-9]{10})") @NotNull @Size(min = 10, max = 10) @NotBlank(message = "Please Enter Phone Number") String contact_no,
@@ -91,30 +91,5 @@ public class User {
 		this.location = location;
 		this.role = role;
 	}
-
-	
-	
-
-	/*
-	 * public User(@NotNull @NotBlank(message = "Please Enter First Name") String
-	 * first_name,
-	 * 
-	 * @NotNull @NotBlank(message = "Please Enter Last Name") String last_name,
-	 * 
-	 * @Pattern(regexp = "(^$|[0-9]{10})") @NotNull @Size(min = 10, max =
-	 * 10) @NotBlank(message = "Please Enter Phone Number") String contact_no,
-	 * 
-	 * @NotNull String password, @NotNull(message = "Please Enter Date") LocalDate
-	 * date_of_registration,
-	 * 
-	 * @NotNull @Email(message = "Please Enter Valid Email") @NotBlank(message =
-	 * "Plase Enter Email") String email,
-	 * 
-	 * @NotNull @NotBlank(message = "Please Enter City") String location, @NotNull
-	 * Role role) { super(); this.first_name = first_name; this.last_name =
-	 * last_name; this.contact_no = contact_no; this.password = password;
-	 * this.date_of_registration = date_of_registration; this.email = email;
-	 * this.location = location; this.role = role; }
-	 */
 
 }

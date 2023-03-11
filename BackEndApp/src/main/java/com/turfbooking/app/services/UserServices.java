@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.turfbooking.app.bean.User;
 import com.turfbooking.app.dto.LoginRequestDto;
+import com.turfbooking.app.dto.TurfOwnerSpecificResponse;
+import com.turfbooking.app.dto.UserSpecificResponse;
 
 public interface UserServices {
 
@@ -11,15 +13,10 @@ public interface UserServices {
 
 	List<User> getAllUers();
 
-	User findByEmailAndPassword(String email, String password);
+	UserSpecificResponse authenticateUser(LoginRequestDto dto);
 
 	User findById(Long id);
-	
-	String updateUserDetails(User user);
 
+	User updateUserDetails(User user);
 
-
-	
-
-	
 }

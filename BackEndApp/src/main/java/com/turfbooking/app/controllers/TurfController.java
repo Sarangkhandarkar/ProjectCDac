@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.turfbooking.app.bean.TurfDetails;
+import com.turfbooking.app.bean.User;
+import com.turfbooking.app.dto.LoginRequestDto;
 import com.turfbooking.app.services.TurfService;
 
 @RestController
@@ -44,7 +46,6 @@ public class TurfController {
 	@GetMapping("/turf/{turf_id}")
 	public ResponseEntity<?> getTurfById(@PathVariable Long turf_id)  
 	{
-		System.out.println("In turf by id");
 		return ResponseEntity.ok(turfService.findTurfById(turf_id));
 		 
 	}
@@ -75,6 +76,17 @@ public class TurfController {
 		if(list.isEmpty())
 			return new ResponseEntity<>("Invalid Turf City Name!!!!",HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(list,HttpStatus.OK);
+	}
+	
+	@GetMapping("/turf/user_id")
+	public TurfDetails getTurfByOwner(@PathVariable Long user_id )
+	{
+		System.out.println("In Turf list By city");
+		//TurfDetails turf = turfService.getByOwnerId(id);
+		return turfService.getByOwnerId(user_id);
+//		if(list.isEmpty())
+//			return new ResponseEntity<>("Invalid Turf City Name!!!!",HttpStatus.NOT_FOUND);
+//		return new ResponseEntity<>(list,HttpStatus.OK);
 	}
 	
 	@PutMapping("/updateturf")

@@ -23,7 +23,7 @@ public class LoginRequestDto {
 	@NotBlank(message = "Email can't be blank")
 	@Email(message = "Invalid Email Format")
 	private String email;
-	@Pattern(regexp="((?=.*\\d)(?=.*[a-z])(?=.*[#@$*]).{5,20})",message = "Blank or Invalid Password!!!!")
+	//@Pattern(regexp="((?=.*\\d)(?=.*[a-z])(?=.*[#@$*]).{5,20})",message = "Blank or Invalid Password!!!!")
 	private String password;
 
 }

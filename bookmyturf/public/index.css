@@ -1,9 +1,12 @@
-/* body{
+body{
     background-image: url(bg_1.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 395fd50f9cb885d7e880e29b0d9a08027220546e
 }
 
 /* body{
@@ -20,9 +23,9 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 } */
-body{
+/* body{
     background: linear-gradient(180deg, rgb(255, 153, 51) 0%, rgba(225, 5, 34, 0) 70%) repeat scroll 0% 0%, linear-gradient(180deg, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 80%) repeat scroll 0% 0%, linear-gradient(180deg, rgb(22, 153, 44) 100%, rgba(255, 255, 255, 0) 100%) repeat scroll 0% 0%, rgba(0, 0, 0, 0) linear-gradient(180deg, rgb(255, 255, 255) 100%, rgba(9, 245, 5, 0) 70%) repeat scroll 0% 0%;
     background-size : "100% 100%";
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
+} */

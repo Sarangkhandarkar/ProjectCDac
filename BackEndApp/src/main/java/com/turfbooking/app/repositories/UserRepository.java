@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.turfbooking.app.bean.User;
 
-@Repository
+@Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	public User findByEmailAndPassword(String email,String pass);
+	public User findByEmailAndPassword(String email, String password);
 }
