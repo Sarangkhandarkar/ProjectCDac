@@ -77,7 +77,7 @@ public class BookingServiceImpl implements IBookingService {
 
 	@Override
 	public List<BookingDetails> getBookings(Long usr_id) {
-		bookin
+		//bookin
 		return null;
 	}
 

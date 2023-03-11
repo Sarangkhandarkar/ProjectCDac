@@ -10,7 +10,7 @@ import com.turfbooking.app.bean.TurfDetails;
 
 public interface BookingRepository extends JpaRepository<BookingDetails, Long>{
 	
-	List<SportsDetails> findSportsByTurfDetails(TurfDetails turf);
-
-	List<BookingDetails> findBookingByUser_id();
+//	List<SportsDetails> findSportsByTurfDetails(TurfDetails turf);
+//
+//	List<BookingDetails> findBookingByUser_id();
 }
