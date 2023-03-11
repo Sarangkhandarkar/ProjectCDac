@@ -1,7 +1,8 @@
-import {React, useState }from 'react'
+import {React, useContext, useState }from 'react'
 import httpService from '../http-service/http-service';
-
+import { Logincontext } from '../Contexts/Logincontext';
 export default function Navbar() {
+  const {setTurfdetails} = useContext(Logincontext)
   const [serchtype,setSerchtype] = useState("");
   const [serchterm,setSearchterm] = useState("");
 
@@ -10,8 +11,7 @@ export default function Navbar() {
     e.preventDefault();
     setSerchtype(document.getElementById('searchtype').value);
     console.log(serchterm);
-    httpService.SearchBy(serchtype,serchterm).catch((ERROR)=>{console.log(ERROR.body);alert(ERROR.body)});
-  
+    httpService.SearchBy(serchtype,serchterm).then(resp=>{setTurfdetails(resp.data)}).catch((ERROR)=>{console.log(ERROR.body);alert(ERROR.body)});
   }
   return (
     <div>

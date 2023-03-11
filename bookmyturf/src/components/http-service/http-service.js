@@ -4,9 +4,11 @@ const getAll = () => httpClient.get('');
 
 const SearchBy = (serchtype,serchterm) => httpClient.get(`/turf/${serchtype}/${serchterm}`);
 
-const getByCity = (city) => httpClient.get(`/serch/${city}`);
+// const getByCity = (city) => httpClient.get(`/serch/${city}`);
 
-const getByName = (turf) => httpClient.get(`${turf}`);
+// const getByName = (turf) => httpClient.get(`${turf}`);
+
+const getTurfById = (turfid) => httpClient.get(`/sports/${turfid}`)
 
 const registeruser = (data) => httpClient.post('/users/saveuser',data);
 
@@ -24,4 +26,4 @@ const addturf =(data) => httpClient.post('/turf',data);
 
 const addSport =(data) => httpClient.post('/sports/add',data);
 
-export default {getAll,SearchBy,getByCity,getByName,registeruser,registerTurfOwner,bookingRequest,deleteBooking,authenticateUser,addturf,addSport,authenticateOwner};
+export default {getAll,SearchBy,registeruser,registerTurfOwner,bookingRequest,deleteBooking,authenticateUser,addturf,addSport,authenticateOwner,getTurfById};

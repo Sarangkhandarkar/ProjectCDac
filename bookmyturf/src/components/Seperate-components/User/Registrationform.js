@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import './Form.css';
 import httpService from '../../http-service/http-service';
 import md5 from 'crypto-js/md5';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Registrationform() {
@@ -62,10 +64,11 @@ function passMatch(e){
 //     }).then(resp=>{
 //       console.log(resp.data)
 //     })
-
+const navigate = useNavigate();
 function submit(e){
   e.preventDefault();
-  httpService.registeruser(data).then(res => console.log(res.data));
+  httpService.registeruser(data).then(res => {console.log(res.data)});
+  navigate('/userLogin');
   //data['date_of_registration']=new Date().toLocaleDateString();
 }
   return (

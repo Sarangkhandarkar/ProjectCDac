@@ -20,9 +20,12 @@ export default function OwnerProfile() {
 
 
     // })
-    function navigationfunction(){
-      let path ="/addturf"
-      navigate(path);
+    // function navigationfunction(){
+    //   let path ="/addturf"
+    //   navigate(path);
+    // }
+    function clickfunction(e){
+      navigate(e.target.id);
     }
       return (
     <div className=' userform container-fluid text-light  mt-5'>
@@ -40,9 +43,9 @@ export default function OwnerProfile() {
       <h4 className='mt-4 '>City : {userdetails.location}</h4>
       </div>
       <div>
-        <button value="AddTurf" onClick={navigationfunction()} className='button1 rounded'>AddTurf</button>
+        <button id="/addturf" onClick={(e)=>clickfunction(e)} className='button1 rounded'>AddTurf</button>
        
-        <button value="Bookings" className='button2 rounded'>ShowBookings</button>
+        <button  id="/bookings" onClick={(e)=>clickfunction(e)} className='button2 rounded'>ShowBookings</button>
         
       </div>
     </div>

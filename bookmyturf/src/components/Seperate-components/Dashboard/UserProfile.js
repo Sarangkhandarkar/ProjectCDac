@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import { useState } from 'react'
+// import { useState } from 'react'
 import './Profile.css'
 import {Logincontext} from '../../Contexts/Logincontext'
+import Turf from './Turf_Cards'
 
 export default function UserProfile() {
-    const {userdetails} = useContext(Logincontext)
+    const {turfdetails,userdetails} = useContext(Logincontext)
     //const[sampledata,SetSampledata]=useState(userdetails);
 
     // const[sampledata,SetSampledata]=useState({
@@ -16,6 +17,7 @@ export default function UserProfile() {
                 
     // })
   return (
+    <>
     <div className=' userform container-fluid text-light  mt-5'>
       <h1 className='text-danger text-center'>Welcome To BookMyTurf</h1>
       <h2 className='text-center mt-3'>Hello {userdetails.first_name} {userdetails.last_name}</h2>
@@ -33,5 +35,7 @@ export default function UserProfile() {
         
       </div>
     </div>
+    <Turf name={turfdetails}/>
+    </>
   )
 }
