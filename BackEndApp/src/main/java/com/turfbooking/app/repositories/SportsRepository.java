@@ -10,9 +10,9 @@ import com.turfbooking.app.bean.TurfDetails;
 
 @Repository
 public interface SportsRepository extends JpaRepository<SportsDetails, Long> {
-	
+
 	List<SportsDetails> findSportsBySportsName(String key);
-	
+
 	List<SportsDetails> findSportsByTurfDetails(TurfDetails turf);
 
 }

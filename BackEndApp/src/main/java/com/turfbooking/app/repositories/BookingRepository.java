@@ -5,12 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.turfbooking.app.bean.BookingDetails;
-import com.turfbooking.app.bean.SportsDetails;
-import com.turfbooking.app.bean.TurfDetails;
+import com.turfbooking.app.bean.User;
 
-public interface BookingRepository extends JpaRepository<BookingDetails, Long>{
-	
-//	List<SportsDetails> findSportsByTurfDetails(TurfDetails turf);
-//
-//	List<BookingDetails> findBookingByUser_id();
+public interface BookingRepository extends JpaRepository<BookingDetails, Long> {
+
+	List<BookingDetails> findBookingsByUserId(User id);
 }

@@ -25,57 +25,61 @@ import com.turfbooking.app.services.ISportsService;
 @RequestMapping("/sports")
 @CrossOrigin(origins = "http://localhost:3000")
 public class SportsController {
-	
+
 	@Autowired
 	private ISportsService sportService;
-	
+
 	@PostMapping("/add")
-	public ResponseEntity<SportsDetails> addSorts(@RequestBody @Valid SportsDetails sports)
-	{
+	public ResponseEntity<SportsDetails> addSorts(@RequestBody @Valid SportsDetails sports) {
 		System.out.println("In Sports Add Method");
-		return new ResponseEntity<SportsDetails>(sportService.addSport(sports),HttpStatus.CREATED);
+		return new ResponseEntity<SportsDetails>(sportService.addSport(sports), HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/{sportsname}")
-	public ResponseEntity<?> getSportsByName(@PathVariable String sportsName)
-	{
+	public ResponseEntity<?> getSportsByName(@PathVariable String sportsName) {
 		System.out.println("In Sports by name ");
 		List<SportsDetails> list = sportService.getSportsByName(sportsName);
-		if(list.isEmpty())
-			return new ResponseEntity<>("Invalid Sports Details !!!!",HttpStatus.NOT_FOUND);
+		if (list.isEmpty())
+			return new ResponseEntity<>("Invalid Sports Details !!!!", HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/updateSport")
-	public SportsDetails updateSports(@RequestBody @Valid SportsDetails detachSport)
-	{
+	public SportsDetails updateSports(@RequestBody @Valid SportsDetails detachSport) {
 		System.out.println("In Update Sports ");
 		return sportService.updateSprts(detachSport);
 	}
-	
+
 	@GetMapping("/sportslist")
-	public ResponseEntity<?> getAllSports()
-	{
+	public ResponseEntity<?> getAllSports() {
 		System.out.println("In Sports list");
 		List<SportsDetails> list = sportService.getAllSports();
-		if(list.isEmpty())
-			return new ResponseEntity<>("Sports List Is Empty !!!!",HttpStatus.NOT_FOUND);
-		return new ResponseEntity<>(list,HttpStatus.OK);
+		if (list.isEmpty())
+			return new ResponseEntity<>("Sports List Is Empty !!!!", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/{sport_id}")
-	public String deleteSports(@PathVariable Long sport_id)
-	{
+	public String deleteSports(@PathVariable Long sport_id) {
 		System.out.println("in Sports Delete");
 		return sportService.deleteSports(sport_id);
 	}
+//	@GetMapping("/turf/sports/{turf_id}")
+//	public List<SportsDetails> getSportsByTurfId(@PathVariable Long turf_id) {
+//		return sportService.getSportsByTurfId(turf_id);
+//	}
+
 	@GetMapping("/turf/sports/{turf_id}")
-	public List<SportsDetails> getSportsByTurfId(@PathVariable Long turf_id) {
-		return sportService.getSportsByTurfId(turf_id);
+	public ResponseEntity<?> getSportsByTurfId(@PathVariable Long turf_id) {
+		List<SportsDetails> sportsList = sportService.getSportsByTurfId(turf_id);
+		if(sportsList.isEmpty()) {
+			return new ResponseEntity<>("Sports not available!!!!",HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(sportsList,HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/turf/sports/time/{time_id}")
-	public TimeSlots getTimeSlot(@PathVariable Long time_id){
-		return sportService.getTimeSlot(time_id);	
+	public TimeSlots getTimeSlot(@PathVariable Long time_id) {
+		return sportService.getTimeSlot(time_id);
 	}
 }

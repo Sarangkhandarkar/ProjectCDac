@@ -8,6 +8,6 @@ public interface IBookingService {
 
 	BookingDetails addBooking(BookingDetails booking);
 
-	List<BookingDetails> getBookings(Long usr_id);
+	List<BookingDetails> getBookings(Long user_id);
 
 }
