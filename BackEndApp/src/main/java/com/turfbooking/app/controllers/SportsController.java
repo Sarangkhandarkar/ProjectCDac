@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.turfbooking.app.bean.SportsDetails;
+import com.turfbooking.app.bean.TimeSlots;
 import com.turfbooking.app.services.ISportsService;
 
 @RestController
@@ -71,5 +72,10 @@ public class SportsController {
 	@GetMapping("/turf/sports/{turf_id}")
 	public List<SportsDetails> getSportsByTurfId(@PathVariable Long turf_id) {
 		return sportService.getSportsByTurfId(turf_id);
+	}
+	
+	@GetMapping("/turf/sports/time/{time_id}")
+	public TimeSlots getTimeSlot(@PathVariable Long time_id){
+		return sportService.getTimeSlot(time_id);	
 	}
 }
