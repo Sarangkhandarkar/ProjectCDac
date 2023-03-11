@@ -5,7 +5,7 @@ import {Logincontext} from '../../Contexts/Logincontext'
 import Turf from './Turf_Cards'
 
 export default function UserProfile() {
-    const {turfdetails,userdetails} = useContext(Logincontext)
+    const {userdetails} = useContext(Logincontext);
     //const[sampledata,SetSampledata]=useState(userdetails);
 
     // const[sampledata,SetSampledata]=useState({
@@ -29,13 +29,13 @@ export default function UserProfile() {
       <h4 className='mt-4 '>City : {userdetails.location}</h4>
       </div>
       <div>
-        <button value="BookTurf" className='button1 rounded'>Book Turf</button>
+        <button id="/bookturf" className='button1 rounded'>Book Turf</button>
        
         <button value="Bookings" className='button2 rounded'>ShowBookings</button>
         
       </div>
     </div>
-    <Turf name={turfdetails}/>
+    <Turf />
     </>
   )
 }

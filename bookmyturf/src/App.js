@@ -17,7 +17,7 @@ import BookingPage from './components/Seperate-components/Bookings/BookingPage';
 //import Turf_Cards from './components/Seperate-components/Dashboard/Turf_Cards'
 function App() {
   const [userdetails,setUserdetails]=useState({})
-  const [turfdetails,setTurfdetails]=useState({})
+  const [turfdetails,setTurfdetails]=useState([])
   const [selectedTurf,setSelectedturf]=useState({})
   return (
     <BrowserRouter>

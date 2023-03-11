@@ -1,6 +1,6 @@
 import httpClient from "../../http-common";
 
-const getAll = () => httpClient.get('');
+const getAll = () => httpClient.get('turf/turflist');
 
 const SearchBy = (serchtype,serchterm) => httpClient.get(`/turf/${serchtype}/${serchterm}`);
 
@@ -8,7 +8,7 @@ const SearchBy = (serchtype,serchterm) => httpClient.get(`/turf/${serchtype}/${s
 
 // const getByName = (turf) => httpClient.get(`${turf}`);
 
-const getTurfById = (turfid) => httpClient.get(`/sports/${turfid}`)
+const getTurfById = (turfid) => httpClient.get(`/sports/turf/sports/${turfid}`)
 
 const registeruser = (data) => httpClient.post('/users/saveuser',data);
 

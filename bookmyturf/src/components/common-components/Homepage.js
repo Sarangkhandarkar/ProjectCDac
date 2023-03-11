@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react'
-import { Logincontext } from '../Contexts/Logincontext'
+import React from 'react'
+//import { Logincontext } from '../Contexts/Logincontext'
 
 import '../Seperate-components/Dashboard/Card.css'
 import './Footer.css'
@@ -7,17 +7,17 @@ import './Footer.css'
 
 
 export default function Homepage() {
-const { data , setData } =useContext(Logincontext);
+// const { data , setData } =useContext(Logincontext);
 
-  const init = () => {
-  console.log(data)
-  // setData({
-  //   name: 'Vaibhav',
-  //   job: 'developer'
-  // })
- }
+//   const init = () => {
+//   console.log(data)
+//   // setData({
+//   //   name: 'Vaibhav',
+//   //   job: 'developer'
+//   // })
+//  }
 
-useEffect(()=>{ init();})
+// useEffect(()=>{ init();})
   return (
     <>
     <div className='bg'>

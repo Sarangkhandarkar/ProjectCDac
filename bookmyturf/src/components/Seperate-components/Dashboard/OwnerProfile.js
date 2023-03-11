@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import './Profile.css'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
@@ -33,9 +32,6 @@ export default function OwnerProfile() {
       <h2 className='text-center mt-3'>Hello {userdetails.first_name}  {userdetails.last_name}</h2>
 
       <div className='row'>
-      
-     
-      
       <h4 className='mt-4 me-5'>Turf : {userdetails.turf_name}</h4>
       <h4 className='mt-4 '>Address :{userdetails.address}</h4>
       <h4 className='mt-4 me-5'>Contact : {userdetails.contact_no}</h4>
