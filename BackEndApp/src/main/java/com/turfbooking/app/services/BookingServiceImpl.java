@@ -42,30 +42,30 @@ public class BookingServiceImpl implements IBookingService {
 		booking.setTurf_id(td);
 		// System.out.println(td);
 		// System.out.println();
-		User u = userRepo.findById(booking.getUser_id().getId()).get();
-		booking.setUser_id(u);
+		User u = userRepo.findById(booking.getUserId().getId()).get();
+		booking.setUserId(u);
 		// System.out.println(u);
 		TimeSlots tl = slotRepo.findById(booking.getTime_slot().getTime_id()).get();
 		booking.setTime_slot(tl);
 
 		switch (booking.getTime_slots()) {
 		case "_9to_10":
-				booking.getTime_slot().set_9to_10(true);
+			booking.getTime_slot().set_9to_10(true);
 			break;
 		case "_10to_11":
-				booking.getTime_slot().set_10to_11(true);
+			booking.getTime_slot().set_10to_11(true);
 			break;
 		case "_11to_12":
-				booking.getTime_slot().set_11to_12(true);
+			booking.getTime_slot().set_11to_12(true);
 			break;
 		case "_12to_13":
-				booking.getTime_slot().set_12to_13(true);
+			booking.getTime_slot().set_12to_13(true);
 			break;
 		case "_13to_14":
-				booking.getTime_slot().set_13to_14(true);
+			booking.getTime_slot().set_13to_14(true);
 			break;
 		case "_14to_15":
-				booking.getTime_slot().set_14to_15(true);
+			booking.getTime_slot().set_14to_15(true);
 			break;
 
 		default:
@@ -76,9 +76,9 @@ public class BookingServiceImpl implements IBookingService {
 	}
 
 	@Override
-	public List<BookingDetails> getBookings(Long usr_id) {
-		bookin
-		return null;
+	public List<BookingDetails> getBookings(Long user_id) {
+		User user = userRepo.findById(user_id).get();
+		return bookingRepo.findBookingsByUserId(user);
 	}
 
 }

@@ -48,7 +48,7 @@ public class BookingDetails {
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id",nullable = true)
-	private User user_id;
+	private User userId;
 	
 	@OneToOne
 	@JoinColumn(name = "sport_id",nullable = true)
@@ -59,6 +59,6 @@ public class BookingDetails {
 	private TurfDetails turf_id;
 	
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "time_id")
+	@JoinColumn(name = "time_id",nullable = true)
 	private TimeSlots time_slot;
 }
