@@ -18,13 +18,13 @@ import BookingPage from './components/Seperate-components/Bookings/BookingPage';
 function App() {
   const [userdetails,setUserdetails]=useState({})
   const [turfdetails,setTurfdetails]=useState([])
-  const [selectedTurf,setSelectedturf]=useState({})
+  const [selectedturfdetails,setSelectedturfdetails]=useState([])
   return (
     <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
     <div className="container" >
-    <Logincontext.Provider value={ {userdetails ,setUserdetails, turfdetails,setTurfdetails,selectedTurf,setSelectedturf} }>
+    <Logincontext.Provider value={ {userdetails ,setUserdetails, turfdetails,setTurfdetails,selectedturfdetails,setSelectedturfdetails} }>
       <Routes>
         <Route path='/user' element={<Turf/>} />
         

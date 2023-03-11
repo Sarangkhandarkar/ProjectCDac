@@ -4,7 +4,7 @@ import { Logincontext } from '../../Contexts/Logincontext'
 import httpService from '../../http-service/http-service'
 import './Card.css'
 export default function Turf() {
-const {turfdetails,setSelectedturf} = useContext(Logincontext)
+const {turfdetails,setSelectedturfdetails} = useContext(Logincontext)
 
 //setTurfdetails(props.name.turfdetails)
 const navigate = useNavigate();
@@ -22,7 +22,7 @@ const navigate = useNavigate();
 
 //   setTurfdetails(sampledata);
 function submit(e){
-  httpService.getTurfById(e.target.id).then(resp=>{setSelectedturf(resp.data);console.log(resp.data)});
+  httpService.getTurfById(e.target.id).then(resp=>{setSelectedturfdetails(resp.data);console.log(resp.data)});
   navigate('/bookturf');
 }
   return (

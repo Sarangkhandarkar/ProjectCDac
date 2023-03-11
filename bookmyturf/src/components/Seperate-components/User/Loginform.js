@@ -30,6 +30,12 @@ const {setUserdetails,setTurfdetails} = useContext(Logincontext);
 	// }
 	function submit(e){
 		e.preventDefault();
+		// if(!(loginDetails.email.trim.length===0)){
+		// 	document.getElementsByName('email').setCustomValidity("Email field is not valid please re-enter the email")
+		// }else{
+		// 	document.getElementsByName('email').setCustomValidity("Email field is not valid please re-enter the email")
+		// 	document.getElementsByName('email').setCustomValidity("Email field is not valid please re-enter the email")
+		// }
 		// if (userrole.userRole==='TURF_OWNER'){
 		// 	httpService.authenticateOwner(loginDetails).then(res => {console.log(res.data);setUserdetails(res.data);});
 		// 	navigate('/OwnerProfile');
@@ -39,9 +45,12 @@ const {setUserdetails,setTurfdetails} = useContext(Logincontext);
 		// 	httpService.getAll()
 		// }
 		// console.log(userrole.userRole)
+		if(document.getElementsByName("email").value===""){
+			alert("email field cannot be blank")
+		}else{
 		httpService.getAll().then(resp=>{console.log(resp.data);setTurfdetails(resp.data)})
-		httpService.authenticateUser(loginDetails).then(res=>{setUserdetails(res.data);res.data.role==="USER"?navigate("/UserProfile"):navigate("/OwnerProfile")})	
-	  }
+		httpService.authenticateUser(loginDetails).then(res=>{setUserdetails(res.data);res.data.role==="USER"?navigate("/UserProfile"):navigate("/OwnerProfile")}).catch((err)=>alert(err.response.data.email))	
+	  }}
   return (
     <div >
 	<center>
