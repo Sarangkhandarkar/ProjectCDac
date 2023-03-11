@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 export default function Loginform() {
 const navigate = useNavigate();
 
-const [userrole,setUserrole] =useState({
-	userRole: ""
-});
-const {userdetails,setUserdetails} = useContext(Logincontext);
+// const [userrole,setUserrole] =useState({
+// 	userRole: ""
+// });
+const {setUserdetails,setTurfdetails} = useContext(Logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
 		email:"",
@@ -39,6 +39,7 @@ const {userdetails,setUserdetails} = useContext(Logincontext);
 		// 	httpService.getAll()
 		// }
 		// console.log(userrole.userRole)
+		httpService.getAll().then(resp=>{console.log(resp.data);setTurfdetails(resp.data)})
 		httpService.authenticateUser(loginDetails).then(res=>{setUserdetails(res.data);res.data.role==="USER"?navigate("/UserProfile"):navigate("/OwnerProfile")})	
 	  }
   return (
