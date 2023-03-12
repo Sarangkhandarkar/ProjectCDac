@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Profile.css'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { Logincontext } from '../../Contexts/Logincontext'
+import AddSport from '../Sport/AddSport'
 
 export default function OwnerProfile() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const {userdetails} =useContext(Logincontext);
 
     // const[sampledata,SetSampledata]=useState({
@@ -40,9 +41,7 @@ export default function OwnerProfile() {
       </div>
       <div>
         <button id="/addturf" onClick={(e)=>clickfunction(e)} className='button1 rounded'>AddTurf</button>
-       
         <button  id="/bookings" onClick={(e)=>clickfunction(e)} className='button2 rounded'>ShowBookings</button>
-        
       </div>
     </div>
   )

@@ -22,8 +22,8 @@ const navigate = useNavigate();
 
 //   setTurfdetails(sampledata);
 function submit(e){
-  httpService.getTurfById(e.target.id).then(resp=>{setSelectedturfdetails(resp.data);console.log(resp.data)});
-  navigate('/bookturf');
+  httpService.getTurfById(e.target.id).then(resp=>{setSelectedturfdetails(resp.data);navigate('/bookturf');}).catch(err=>console.log(err.body));
+  
 }
   return (
     turfdetails.map((turf)=>

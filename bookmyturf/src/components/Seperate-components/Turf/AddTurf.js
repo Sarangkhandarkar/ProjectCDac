@@ -2,7 +2,7 @@ import {useState} from "react";
 
 import React from 'react'
 import httpService from "../../http-service/http-service";
-import  "../Sport/AddSport"
+import AddSport from "../Sport/AddSport";
 
 export default function AddTurf() {
   const [sport,setSport] = useState({
@@ -11,6 +11,7 @@ export default function AddTurf() {
     rate_per_hour: "",
     max_players: ""
   })
+  
   const [sportid,setSportid] = useState("");
   const [spname,setSpname] = useState("");
   const [maxplay,setMaxplay] = useState("");
@@ -153,6 +154,7 @@ export default function AddTurf() {
             <button onClick={(e)=>submit(e)}  className='btn btn-primary' value="Addturf">Save Or Update</button>
         </div>
          </form>
+         <AddSport/>
     </div>
   )
 }

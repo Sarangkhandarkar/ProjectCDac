@@ -28,10 +28,10 @@ export default function UserProfile() {
       <h4 className='mt-4 '>Email :{userdetails.email}</h4>
       <h4 className='mt-4 '>City : {userdetails.location}</h4>
       </div>
-      <div>
-        <button id="/bookturf" className='button1 rounded'>Book Turf</button>
+      <div >
+        {/* <button id="/bookturf" className='button1 rounded'>Book Turf</button> */}
        
-        <button value="Bookings" className='button2 rounded'>ShowBookings</button>
+        <button value="Bookings" className='button1 rounded'>MyBookings</button>
         
       </div>
     </div>
