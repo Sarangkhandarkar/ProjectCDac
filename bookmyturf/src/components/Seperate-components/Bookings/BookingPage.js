@@ -75,8 +75,8 @@ function BookingPage() {
             <div className='row'>
                 <h4 className='mt-4 me-5'>Turf : {selectedturfdetails[0].turfDetails.name}</h4>
                 <h4 className='mt-4 '>Address :{selectedturfdetails[0].turfDetails.address}</h4>
-                <h4 className='mt-4 me-5'>Contact : {selectedturfdetails[0].turfDetails.image}</h4>
-                <h4 className='mt-4 '>turf_id :{selectedturfdetails[0].turfDetails.turf_id}</h4>
+                <h4 className='mt-4 me-5'>Contact : {selectedturfdetails[0].turfDetails.user.contact_no}</h4>
+                {/* <h4 className='mt-4 '>turf_id :{selectedturfdetails[0].turfDetails.turf_id}</h4> */}
                 <h4 className='mt-4 '>City : {selectedturfdetails[0].turfDetails.city}</h4>
                   <div className='mt-4 me-5 row'>
                      <lable className='col' htmlfor='sportDropdown'><h4>Select the sport from the list&nbsp;&nbsp;&nbsp;</h4></lable>

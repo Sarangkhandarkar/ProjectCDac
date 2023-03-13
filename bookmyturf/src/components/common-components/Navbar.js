@@ -6,13 +6,15 @@ export default function Navbar() {
   const [serchtype,setSerchtype] = useState("");
   const [serchterm,setSearchterm] = useState("");
 
-
   function submit(e){
     e.preventDefault();
     setSerchtype(document.getElementById('searchtype').value);
     console.log(serchterm);
     httpService.SearchBy(serchtype,serchterm).then(resp=>{setTurfdetails(resp.data)}).catch((ERROR)=>{console.log(ERROR.body);alert(ERROR.body)});
   }
+  // function funcLogout(){
+  //   alert("You have logged out");
+  // }
   return (
     <div>
       <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" >
@@ -64,6 +66,12 @@ export default function Navbar() {
         
         <button className="btn btn-outline-success" type="submit" >Search</button>
       </form>
+      <ul className='navbar-nav mb-2 mb-lg-0'>
+      <li className="nav-item">
+          {/* <button className='btn' onClick={funcLogout()}>logout</button> */}
+          <a className="nav-link" aria-current="page" href="/">Logout</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

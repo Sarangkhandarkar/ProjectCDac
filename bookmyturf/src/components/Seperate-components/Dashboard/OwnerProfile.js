@@ -34,7 +34,7 @@ export default function OwnerProfile() {
         setOwnerturfobject(response.data);
         console.log(response.data)
         setLoading(false);
-      });
+      }).catch(err=>{console.log("no data for the turf found If you are first time ownwer do not worry");setLoading(false)});
     }, []);
     if(loading){
       return(<div><h2>loading data plz wait.....</h2></div>)

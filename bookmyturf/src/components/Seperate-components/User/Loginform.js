@@ -10,7 +10,7 @@ const navigate = useNavigate();
 // const [userrole,setUserrole] =useState({
 // 	userRole: ""
 // });
-const {setUserdetails,setTurfdetails,setOwnerturfobject} = useContext(Logincontext);
+const {setUserdetails,setTurfdetails} = useContext(Logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
 		email:"",

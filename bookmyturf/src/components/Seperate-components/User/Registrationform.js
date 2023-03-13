@@ -109,6 +109,14 @@ function submit(e){
       </div>
 
       <div className="form-group row">
+      <label htmlFor="location" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2  h-25'>City:</label>
+                  <div className="col-sm-10">
+                  <input className='form-control'type="tel" onBlur={(e)=>handle(e)} id="location" name="location" required/><br/>
+
+                  </div>
+      </div>
+
+      <div className="form-group row">
                  <label htmlFor="password" className='col-sm-2 col-form-label fw-bold   text-end text-light rounded-2  h-25'>password:</label>
                   <div className="col-sm-10">
                   <input className='form-control'type="password" onBlur={(e)=>handle(e)} id="password" name="password" required/><br/>

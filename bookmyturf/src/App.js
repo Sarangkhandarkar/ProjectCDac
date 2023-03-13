@@ -16,16 +16,21 @@ import { useState } from 'react';
 import BookingPage from './components/Seperate-components/Bookings/BookingPage';
 //import Turf_Cards from './components/Seperate-components/Dashboard/Turf_Cards'
 function App() {
+  const [login,setLogin] = useState(false);
   const [userdetails,setUserdetails]=useState({})
   const [turfdetails,setTurfdetails]=useState([])
   const [selectedturfdetails,setSelectedturfdetails]=useState([])
-  const [ownerturfobject,setOwnerturfobject] =useState();
+  const [ownerturfobject,setOwnerturfobject] =useState({
+    name: "turf is not yet added",
+    address: "",
+    city: ""
+  });
   return (
     <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
     <div className="container" >
-    <Logincontext.Provider value={ {userdetails ,setUserdetails, turfdetails,setTurfdetails,selectedturfdetails,setSelectedturfdetails,ownerturfobject,setOwnerturfobject} }>
+    <Logincontext.Provider value={ {userdetails ,setUserdetails, turfdetails,setTurfdetails,selectedturfdetails,setSelectedturfdetails,ownerturfobject,setOwnerturfobject,login,setLogin} }>
       <Routes>
         <Route path='/user' element={<Turf/>} />
         
