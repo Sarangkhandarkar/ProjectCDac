@@ -10,7 +10,7 @@ const navigate = useNavigate();
 // const [userrole,setUserrole] =useState({
 // 	userRole: ""
 // });
-const {setUserdetails,setTurfdetails} = useContext(Logincontext);
+const {setUserdetails,setTurfdetails,setOwnerturfobject} = useContext(Logincontext);
 
 	const [loginDetails,setLoginDetails] = useState({
 		email:"",
@@ -48,8 +48,9 @@ const {setUserdetails,setTurfdetails} = useContext(Logincontext);
 		if(document.getElementsByName("email").value===""){
 			alert("email field cannot be blank")
 		}else{
-		httpService.getAll().then(resp=>{console.log(resp.data);setTurfdetails(resp.data)})
-		httpService.authenticateUser(loginDetails).then(res=>{setUserdetails(res.data);res.data.role==="USER"?navigate("/UserProfile"):navigate("/OwnerProfile")}).catch((err)=>alert(err.response.data.email))	
+		httpService.getAll().then(resp=>{console.log(resp.data);setTurfdetails(resp.data)});
+		//httpService.getTurfByOwnweId(res.data.id).then(resp=>setOwnerturfobject(resp.data));
+		httpService.authenticateUser(loginDetails).then(res=>{setUserdetails(res.data);res.data.role==="USER"?navigate("/UserProfile"):navigate("/OwnerProfile")}).catch((err)=>alert(err.response.data.email +" or "+ err.response.data.password));
 	  }}
   return (
     <div >

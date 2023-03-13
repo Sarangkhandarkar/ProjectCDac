@@ -19,12 +19,13 @@ function App() {
   const [userdetails,setUserdetails]=useState({})
   const [turfdetails,setTurfdetails]=useState([])
   const [selectedturfdetails,setSelectedturfdetails]=useState([])
+  const [ownerturfobject,setOwnerturfobject] =useState();
   return (
     <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
     <div className="container" >
-    <Logincontext.Provider value={ {userdetails ,setUserdetails, turfdetails,setTurfdetails,selectedturfdetails,setSelectedturfdetails} }>
+    <Logincontext.Provider value={ {userdetails ,setUserdetails, turfdetails,setTurfdetails,selectedturfdetails,setSelectedturfdetails,ownerturfobject,setOwnerturfobject} }>
       <Routes>
         <Route path='/user' element={<Turf/>} />
         

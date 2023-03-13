@@ -24,7 +24,7 @@ function Registrationform() {
     contact_no: "stringstri",
     password: "string",
     email: "string",
-    role: "USER",
+    role: "TURF_OWNER",
     date_of_registration: "",
     location:"string",
     

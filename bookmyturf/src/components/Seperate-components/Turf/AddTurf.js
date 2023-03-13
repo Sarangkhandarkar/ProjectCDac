@@ -1,10 +1,12 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 
 import React from 'react'
 import httpService from "../../http-service/http-service";
 import AddSport from "../Sport/AddSport";
+import { Logincontext } from "../../Contexts/Logincontext";
 
 export default function AddTurf() {
+  const {userdetails,ownerturfobject} = useContext(Logincontext)
   const [sport,setSport] = useState({
     sportid: "",
     sport_name: "",
@@ -22,15 +24,19 @@ export default function AddTurf() {
     address : "",
     city : "",
     image : "",
-    user : {id : "1"},
+    user : {id : ""},
     // sports :[]
   });
+
   function handleChange(e){
     let newdata = {...data}
     newdata[e.target.id] = e.target.value;
     setData(newdata);
   }
   function submit(e){
+    let newdata = {...data};
+    newdata.user.id=userdetails.id;
+    setData(newdata)
     e.preventDefault();
     httpService.addturf(data).then((resp)=>console.log(resp.data))
   }
@@ -61,7 +67,7 @@ export default function AddTurf() {
          <form >
 
          <div className="  mb-3 row ">
-         <label htmlFor="name" className='col-sm-2 col-form-label' >Turf Name:</label>
+         <label htmlFor="name"  className='col-sm-2 col-form-label' >Turf Name:</label>
          <div className="col-sm-10">
           <input
             type='text'
@@ -101,7 +107,7 @@ export default function AddTurf() {
         </div></div>
 
 
-        <div className="  mb-3 row ">
+        {/* <div className="  mb-3 row ">
         <label htmlFor="image" className='col-sm-2 col-form-label' >image:</label>
         <div className="col-sm-10">
           <input
@@ -112,7 +118,7 @@ export default function AddTurf() {
             placeholder='Enter Image'
           />
         </div>
-        </div>
+        </div> */}
         {/* check boxes */}
       {/* <div className="row">
         <div className="col"><label htmlFor="image" className='col-sm-5 text-nowrap col-form-label' >Select Sports</label></div>

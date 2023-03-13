@@ -37,7 +37,7 @@ export default function Navbar() {
             <li><a className="dropdown-item" href="/adminLogin">Admin</a></li>
           </ul>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" href="/addturf">Addturf</a>
         </li>
         <li className="nav-item">
@@ -48,7 +48,7 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/UserProfile">UserProfile</a>
-        </li>
+        </li> */}
       </ul>
       <form className="d-flex col-5 form-inline" role="search" onSubmit={(e) => submit(e)}>
       <ul className='my-2 mx-2'>

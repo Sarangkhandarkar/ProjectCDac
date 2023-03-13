@@ -22,7 +22,7 @@ function BookingPage() {
     const [data,setData]=useState({
       booking_status: true,
       payment_status: true,
-      timeslot: "",
+      time_slots: "",
       userId: {
         id: ""
       },
@@ -46,12 +46,17 @@ function BookingPage() {
     }
     function ontimechange(e){
       setSelectedtimeslot(e.target.value);
+      console.log(e.target.value)
+      const newdata = {...data};
+      newdata.time_slots=e.target.value;
+      setData(newdata);
     }
     function submit(e){
       const newdata={...data};
+      console.log(selectedtimeslot);
       newdata.booking_status=true;
       newdata.payment_status=true;
-      newdata.timeslot=selectedtimeslot;
+      //newdata.time_slots=selectedtimeslot;
       newdata.userId.id=userdetails.id;
       newdata.sportId.sport_id=sportsid;
       newdata.turf_id.turf_id=selectedturfdetails[0].turfDetails.turf_id;

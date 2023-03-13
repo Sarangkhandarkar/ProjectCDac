@@ -1,39 +1,48 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 
 import React from 'react'
 import httpService from "../../http-service/http-service";
-
+import { Logincontext } from "../../Contexts/Logincontext";
 export default function AddSport() {
+  const addedsports=[];
+  const {ownerturfobject} = useContext(Logincontext)
     const [show,setShow]=useState(false);
     const [data,setData] = useState({
       sport_id : "",
       sportsName : "",
       max_player: "",
       price_per_hour : "",
-      tufDetails: {
-        turf_id: 1
+      turfDetails: {
+        turf_id: ""
       },
-      timeSlots:[{time_id: "1"}]
+      timeSlots:{time_id: ""}
     });
   
     function handle(e){
       let newdata = {...data}
       newdata[e.target.id] = e.target.value;
+      newdata.turfDetails.turf_id=ownerturfobject.turf_id;
       setData(newdata);
     }
     function submit(e){
         e.preventDefault();
-        alert(data['sportsName'] + 'is added successfully')
+        if(!addedsports.includes(data['sportsName'])){
+          alert(data['sportsName'] + 'is added successfully');
+          addedsports.push(data['sportsName']);
         httpService.addSport(data).then(resp=>console.log(resp.data))
+        }else{
+          alert( data['sportsName'] +"  is already added to this turf")
+        }
+        
       }
       return (show ?(
         <div>
-        <div className="  mb-3 row ">
+        {/* <div className="  mb-3 row ">
            <label htmlFor="sport_id" className='col-sm-2 col-form-label' >Sport Id:</label>
            <div className="col-sm-10">
               <input type='text' className='form-control' id='sport_id' onChange={(e)=>handle(e)} placeholder='Enter Sport Id'/>
           </div>
-        </div>
+        </div> */}
   
            <div className="  mb-3 row ">
            <label htmlFor="sportsName" className='col-sm-2 col-form-label' >Sport Name:</label>
