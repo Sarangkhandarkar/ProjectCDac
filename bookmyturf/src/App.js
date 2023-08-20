@@ -26,7 +26,7 @@ function App() {
     city: ""
   });
   return (
-    <BrowserRouter history={browserHistory }>
+    <BrowserRouter>
     <Navbar/>
     <div id='box'></div>
     <div className="container" >
