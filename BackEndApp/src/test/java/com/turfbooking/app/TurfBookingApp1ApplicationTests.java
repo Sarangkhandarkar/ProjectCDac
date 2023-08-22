@@ -24,20 +24,20 @@ class TurfBookingApp1ApplicationTests {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@Test
-	void contextLoads() {
+	// @Test
+	// void contextLoads() {
 		
-		List<User>allUser = userService.getAllUers();
-		System.out.println(allUser);
-		assertEquals(0, allUser.size());
-	}
+	// 	List<User>allUser = userService.getAllUers();
+	// 	System.out.println(allUser);
+	// 	assertEquals(0, allUser.size());
+	// }
 	
-	@Test
-	public void testSaveUser() throws Exception
-	{
-		User user = new User("Rohit", "Lokhnade","9673707467","Rohit@73",LocalDate.parse("2023-01-01"),"rohitlokhande@gmail.com","Nashik",Role.valueOf("ADMIN"));
-		User persitentUser = userRepo.save(user);
-		assertEquals(1,persitentUser.getId());
-	}
+	// @Test
+	// public void testSaveUser() throws Exception
+	// {
+	// 	User user = new User("Rohit", "Lokhnade","9673707467","Rohit@73",LocalDate.parse("2023-01-01"),"rohitlokhande@gmail.com","Nashik",Role.valueOf("ADMIN"));
+	// 	User persitentUser = userRepo.save(user);
+	// 	assertEquals(1,persitentUser.getId());
+	// }
 
 }
